@@ -1,0 +1,118 @@
+############################################
+# ENVIRONMENT VARIABLES (Frontend)
+############################################
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+!.env.example
+
+############################################
+# NODE DEPENDENCIES
+############################################
+node_modules/
+.pnp/
+.pnp.js
+
+############################################
+# BUILD OUTPUTS
+############################################
+build/
+dist/
+out/
+.next/
+.cache/
+.vite/
+.turbo/
+
+############################################
+# LOG FILES
+############################################
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+############################################
+# TEST & COVERAGE
+############################################
+coverage/
+.nyc_output/
+cypress/videos/
+cypress/screenshots/
+
+############################################
+# TYPE SCRIPT
+############################################
+*.tsbuildinfo
+
+############################################
+# LINT / FORMAT / TOOL CACHE
+############################################
+.eslintcache
+.stylelintcache
+.prettiercache
+.rspack-cache/
+
+############################################
+# EDITOR & IDE FILES
+############################################
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.code-workspace
+
+############################################
+# OS FILES
+############################################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+############################################
+# TEMP & CACHE FILES
+############################################
+.tmp/
+temp/
+.tmp.*
+.cache/
+.parcel-cache/
+
+############################################
+# OPTIONAL: PUBLIC GENERATED FILES
+############################################
+public/*.map
+public/assets/
+public/build/
+
+############################################
+# OPTIONAL: SERVICE WORKERS & PWA
+############################################
+sw.js
+workbox-*.js
+
+############################################
+# OPTIONAL: LOCAL MOCK / DEV FILES
+############################################
+mock/
+mocks/
+*.local.js
+*.local.ts

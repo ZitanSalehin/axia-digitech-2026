@@ -1,0 +1,138 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+* {
+	box-sizing: border-box;
+}
+
+body,
+html {
+	/* font-family: 'Josefin Sans', sans-serif; */
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Playfair Display', serif;
+}
+
+p,
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+@keyframes marquee {
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+.animate-marquee {
+	animation: marquee 15s linear infinite;
+}
+@media (min-width: 768px) {
+	.animate-marquee:hover {
+		animation-play-state: paused;
+	}
+}
+
+/* for nav hover effect */
+#nav {
+	display: inline-block;
+	position: relative;
+	/* color: #ffffff; */
+	text-decoration: none;
+}
+#nav::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	border-radius: 5px;
+	height: 0.05em;
+	bottom: 0;
+	left: 0;
+	background: currentcolor;
+	transform-origin: bottom right;
+	transition: transform 0.25s ease-out;
+}
+#nav:hover::after {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+@keyframes slides {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}
+
+/* brands / services slider */
+
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(
+			calc(-250px * 5)
+		); /* Adjust based on number of unique items */
+	}
+}
+
+.slider {
+	height: 50px;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	width: auto;
+	display: flex;
+	align-items: center;
+}
+
+.slide-track {
+	display: flex;
+	width: calc(250px * 10); /* 5 items * 2 = 10 */
+	animation: scroll 10s linear infinite;
+}
+
+.slide {
+	height: 100px;
+	width: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.text-logo {
+	font-size: 18px;
+	font-weight: 600;
+	text-align: center;
+	width: 300px;
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+		visibility: hidden;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+		visibility: visible;
+	}
+}

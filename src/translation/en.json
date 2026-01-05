@@ -1,0 +1,141 @@
+{
+  "brandName": "Axia Digitech",
+  "startButton": "Let’s Get Started",
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "team": "Our Team",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "tagline1": "Next Generation",
+    "tagline2": "Digital Marketing Agency",
+    "intro": "We help ambitious brands achieve their business goals through innovative digital marketing strategies tailored to your needs."
+  },
+  "sectionTitles": {
+    "servicesProvided": "SERVICES PROVIDED BY US",
+    "ourServices": "Our Services",
+    "growWithUs": "Grow Your Businesss With Us",
+    "aboutCompany": "About Company",
+    "meetTeam": "Meet Our Team",
+  "getInTouch": "Get In Touch",
+    "contactInfo": "Contact Information",
+    "followUs": "Follow Us"
+  },
+  "services": {
+    "digitalMarketing": "Facebook Boosting",
+    "websiteDevelopment": "Website Development",
+    "graphicsDesign": "Graphics Design",
+    "socialMediaManagement": "Business Page Setup",
+    "seo": "Search Engine Optimization",
+    "servicesIntro": "We offer a complete range of digital marketing services to help your business grow and succeed online.",
+    "digitalMarketingDesc": "Grow your brand and reach more customers with strategic marketing solutions.",
+    "websiteDevelopmentDesc": "Build fast, responsive, and high-converting websites tailored for your brand.",
+    "graphicsDesignDesc": "Create stunning visuals that represent your brand identity powerfully.",
+    "socialMediaManagementDesc": "We’ll craft eye-catching posts, grow your audience and keep your brand buzzing.",
+    "seoDesc": "Improve your website ranking and drive more organic traffic from search engines.",
+    "learnMore": "Learn more"
+  },
+  "growSection": {
+    "heading": "Empowering Businesses with Smart Digital Solutions.",
+    "description": "At AXIA DIGITECH, we help businesses not just survive—but thrive in the competitive digital world. Whether you're launching a startup or scaling an established brand, our team of strategists, designers, and marketers collaborate to create tailored campaigns that bring measurable success.",
+    "extended": "From SEO and social media to branding, performance marketing, and conversion optimization, we provide a full suite of services focused on one thing—your growth. Our data-driven approach ensures every decision is backed by analytics and aligned with your business goals.",
+    "cta": "Let us be your digital growth partner and take your business to the next level with creativity, precision, and passion.",
+    "getStarted": "Let’s Get Started"
+  },
+  "about": {
+    "overview": "AXIA DIGITECH has grown from a humble five-person startup into a full-fledged digital agency recognized for its creativity, reliability, and results-driven approach. We’ve expanded our expertise, embraced new technologies.",
+    "subheading": "Excellence in Digital Marketing",
+    "strength": "Our core strength lies in developing creative, data-backed marketing strategies that drive engagement, conversions, and long-term success. From branding and design to performance marketing and web development.",
+    "mission": "Our mission is to empower ambitious brands—startups, small businesses, and enterprises alike—with innovative tools and customized strategies that align with their unique goals",
+    "years": "Celebrating Years of Excellence in Digital Marketing"
+  },
+  "team": {
+    "intro": "United by vision. Driven by passion.",
+    "description": "At AXIA DIGITECH, we are more than just a digital agency—we are a collective of passionate individuals driven by innovation, creativity, and a desire to make a difference. Our team is a dynamic blend of visionary designers, expert developers, data-driven marketers, and strategic consultants, all working together to craft solutions that resonate.",
+    "values": "We value open collaboration, clear communication, and a results-focused approach. Whether it's building cutting-edge web platforms, launching compelling marketing campaigns, or enhancing brand presence, we align every step with your business goals. Every project is fueled by our relentless pursuit of excellence and a genuine commitment to your growth."
+  },
+  "contact": {
+    "prompt": "Have a project in mind? Want to learn more about our services? We'd love to hear from you.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message"
+    },
+    "info": {
+      "title": "Our team is ready to help you with your digital marketing needs. Reach out to us using the contact details below.",
+      "email": "Email",
+      "phoneLabel": "Phone",
+      "phoneNumber": "+88 01851626763",
+          "addressLabel": "Address:",
+    "address": "1216 Dhaka, Bangladesh"
+    }
+  },
+  "footer": {
+    "services": "Services",
+    "slogan": "Your partner for digital growth and success in the modern business landscape",
+    "servicesList": [
+      "Facebook Boosting",
+      "Website Development",
+      "Graphics Design",
+      "Business Page Setup"
+    ],
+    "company": "Company",
+        "companyLinks": {
+      "growBusiness": "Grow Your Business",
+      "aboutCompany": "About Company",
+      "meetTeam": "Meet Our Team",
+      "contact": "Contact"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "copyright": "© {{year}} Axia Digitech. All rights reserved."
+  },
+  "serviceSection": {
+    "title": "Facebook Boosting",
+    "description": "In today's hyper-connected world, digital marketing plays a crucial role in helping businesses reach and engage their target audience. From increasing brand awareness to driving conversions, digital marketing offers measurable results across multiple platforms.",
+    "paid_advertising": "Paid Advertising | Boosting Service",
+    "social_media": "Social Media Campaign | Post Design",
+    "content_marketing": "Content Marketing | Content Creation"
+  },
+   "webDevelopment": {
+    "title": "Professional Website Development Services",
+    "description": "Your website is often the first impression a customer has of your brand. A well-designed, user-friendly, and fast website helps build credibility, improve conversions, and keep customers coming back. Whether you need an eCommerce store, business portfolio, or landing page, we deliver websites that are mobile-optimized, SEO-friendly, and lightning-fast.",
+    "features": [
+      "Domain & Hosting Service",
+      "Custom Website Design",
+      "Mobile Responsive Development",
+      "SEO Optimised Structure",
+      "Speed & Performance Optimization"
+    ]
+  },
+  "graphicsDesign": {
+    "title": "Creative Graphics Design Services",
+    "description": "Graphic design is more than just aesthetics—it's communication, consistency, and creativity combined. Whether you're launching a brand, running a social campaign, or printing promotional materials, professional design ensures your message is clear and impactful.",
+    "features": [
+      "Logo | Brand Identity Design",
+      "Cover Photo | Banner Design",
+      "Social Media Post Design"
+    ]
+  },
+  "socialMedia": {
+    "title": "Business Page Setup",
+    "description": "Stay relevant and top-of-mind with your audience through consistent, high-quality social media presence. We craft engaging content, schedule posts, and analyze performance to grow your brand across platforms like Facebook, Instagram, LinkedIn, and more.",
+    "services": [
+      "Social Media Campaign | Post Design",
+      "Content Marketing | Content Creation",
+      "Trend Monitoring & Schedule Post",
+      "Hashtag & Keyword Strategy",
+      "Paid Advertising | Boosting Service",
+      "Detailed Insights & Monthly Reporting"
+    ],
+    "button": "Let's get started"
+  }
+}
