@@ -4,14 +4,11 @@ import GrowBusiness from '../sections/GrowBusiness';
 import HeroSection from '../sections/HeroSection';
 import MeetOurTeam from '../sections/MeetOurTeam';
 import OurServices from '../sections/OurServices';
-import ServiceProvidedBrands from '../sections/ServiceProvidedBrands';
 
 const Home = () => {
 	return (
 		<div>
 			<HeroSection />
-
-			<ServiceProvidedBrands />
 
 			<OurServices />
 

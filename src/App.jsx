@@ -15,14 +15,12 @@ import ContactUs from './sections/ContactUs.jsx';
 import Footer from './sections/Footer.jsx';
 import Navbar from './sections/Navbar.jsx';
 import NotFound from './sections/NotFound.jsx';
-import ServiceProvidedBrands from './sections/ServiceProvidedBrands.jsx';
 import ScrollToTop from './utils/ScrollToTop.jsx';
 
 export default function App() {
 	return (
-		<div className="min-h-screen bg-white dark:bg-[#4B0082] dark:text-[#FF6600]">
+		<div className="min-h-screen bg-[#4B0082] text-[#FF6600]">
 			<ScrollToTop />
-			<ServiceProvidedBrands />
 			<Navbar />
 			<Routes>
 				<Route path="/" element={<Home />} />

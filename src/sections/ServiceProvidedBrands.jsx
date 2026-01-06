@@ -1,33 +1,54 @@
-import { useTranslation } from 'react-i18next';
-
 const ServiceProvidedBrands = () => {
-	const { t } = useTranslation();
-
 	const logoTexts = [
-		t('services.digitalMarketing'),
-		t('services.websiteDevelopment'),
-		t('services.graphicsDesign'),
-		t('services.socialMediaManagement'),
-		// t('services.seo')
+		'Digital Marketing',
+		'Website Development',
+		'Graphics Design',
+		'Social Media Management',
+		'SEO Optimization',
+		'Brand Strategy',
 	];
 
-	const duplicatedTexts = [...logoTexts, ...logoTexts];
-
 	return (
-		<div className="overflow-hidden">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				{/* Scrolling container */}
-				<div className="slider text-gray-600 dark:text-gray-300">
-					<div className="slide-track">
-						{duplicatedTexts.map((text, index) => (
-							<div className="slide" key={index}>
-								<div className="text-logo">{text}</div>
-							</div>
-						))}
-					</div>
+		<section className="py-2 bg-slate-900 text-white overflow-hidden">
+			<div className="flex animate-scroll whitespace-nowrap">
+				{/* FIRST SET */}
+				<div className="flex flex-shrink-0">
+					{logoTexts.map((text, index) => (
+						<div key={index} className="inline-flex items-center px-8 mx-4">
+							<span className="text-xl font-medium">{text}</span>
+						</div>
+					))}
+				</div>
+
+				{/* SECOND SET (CLONE) */}
+				<div className="flex flex-shrink-0">
+					{logoTexts.map((text, index) => (
+						<div
+							key={`clone-${index}`}
+							className="inline-flex items-center px-8 mx-4"
+						>
+							<span className="text-lg font-medium">{text}</span>
+						</div>
+					))}
 				</div>
 			</div>
-		</div>
+
+			<style>{`
+				@keyframes scroll {
+					0% {
+						transform: translateX(0);
+					}
+					100% {
+						transform: translateX(-100%);
+					}
+				}
+
+				.animate-scroll {
+					animation: scroll 12s linear infinite;
+					will-change: transform;
+				}
+			`}</style>
+		</section>
 	);
 };
 
