@@ -1,146 +1,102 @@
-import { useTranslation } from "react-i18next";
-import logo from "../assets/ax2.webp";
-import useMediaQuery from "../utils/useMediaQuery.js";
+import { Zap } from "lucide-react";
 
-const Footer = () => {
-  const { t } = useTranslation();
-  const isMobile = useMediaQuery("(max-width: 768px)");
-  const currentYear = new Date().getFullYear();
-
-const servicesList = t("footer.servicesList", { returnObjects: true });
-
-const companyList = [
-  { href: "#grow-business", label: t("footer.companyLinks.growBusiness", "Grow Your Business") },
-  { href: "#about", label: t("footer.companyLinks.aboutCompany", "About Company") },
-  { href: "#team", label: t("footer.companyLinks.meetTeam", "Meet Our Team") },
-  { href: "#contact", label: t("footer.companyLinks.contact", "Contact") }
-];
-
+export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <a href="#">
-            <div className="flex gap-2 items-center">
-              <img src={logo} alt="Axia Digitech Logo" className="w-9 h-9 mb-1.5" />
-              <div className="text-white font-bold text-2xl dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r from-pink-500 via-purple-700 to-blue-500">
-                Axia&nbsp;Digitech
+    <footer className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-gray-300 overflow-hidden">
+      {/* Glow background */}
+      <div className="absolute inset-0">
+        <div className="absolute w-72 h-72 bg-orange-600/20 blur-3xl rounded-full -top-24 -left-24" />
+        <div className="absolute w-72 h-72 bg-purple-800/20 blur-3xl rounded-full bottom-0 right-0" />
+      </div>
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+          {/* Brand */}
+          <div className="lg:col-span-2 space-y-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-11 h-11 bg-gradient-to-br from-orange-600 to-purple-800 rounded-xl flex items-center justify-center">
+                <Zap className="w-6 h-6 text-white" />
               </div>
+              <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-purple-400 bg-clip-text text-transparent">
+                Axia Digitech
+              </span>
             </div>
-            <p className="mt-4 text-gray-400">{t("footer.slogan")}</p>
-          </a>
+            <p className="text-gray-400 leading-relaxed max-w-md">
+              Your partner for digital growth and success in the modern business
+              landscape.
+            </p>
+          </div>
 
-          {!isMobile ? (
-            <>
-              <div>
-                <h4 className="text-lg font-medium text-white">{t("footer.services")}</h4>
-                <ul className="mt-4 space-y-2">
-                  {servicesList.map((service) => (
-                    <li key={service}>
-                      <a href="#services" className="text-gray-400 hover:text-white">
-                        {service}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          {/* Services */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Services</h4>
+            <ul className="space-y-2 text-sm">
+              {[
+                "Facebook Boosting",
+                "Website Development",
+                "Graphics Design",
+                "Business Page Setup",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="hover:text-orange-500 transition-colors cursor-pointer"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-              <div>
-    <h4 className="text-lg font-medium text-white">{t("footer.company")}</h4>
-    <ul className="mt-4 space-y-2">
-      {companyList.map(({ href, label }) => (
-        <li key={label}>
-          <a href={href} className="text-gray-400 hover:text-white">
-            {label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
+          {/* Company */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Company</h4>
+            <ul className="space-y-2 text-sm">
+              {[
+                "Grow Your Business",
+                "About Company",
+                "Meet Our Team",
+                "Contact",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="hover:text-orange-500 transition-colors cursor-pointer"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-              <div>
-                <h4 className="text-lg font-medium text-white">{t("footer.legal.title", "Legal")}</h4>
-                <ul className="mt-4 space-y-2">
-                  <li>
-                    <a href="#privacy" className="text-gray-400 hover:text-white">
-                      {t("footer.legal.privacy")}
-                    </a>
+          {/* Legal */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Legal</h4>
+            <ul className="space-y-2 text-sm">
+              {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
+                (item) => (
+                  <li
+                    key={item}
+                    className="hover:text-orange-500 transition-colors cursor-pointer"
+                  >
+                    {item}
                   </li>
-                  <li>
-                    <a href="#terms" className="text-gray-400 hover:text-white">
-                      {t("footer.legal.terms")}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#cookies" className="text-gray-400 hover:text-white">
-                      {t("footer.legal.cookies")}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </>
-          ) : (
-            <div className="flex items-end">
-              <div className="flex flex-col gap-6">
-                <div>
-                  <h4 className="text-lg font-medium text-white">{t("footer.services")}</h4>
-                  <ul className="mt-4 space-y-2">
-                    {servicesList.map((service) => (
-                      <li key={service}>
-                        <a href="#services" className="text-gray-400 hover:text-white">
-                          {service}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-medium text-white">{t("footer.company")}</h4>
-                  <ul className="mt-4 space-y-2">
-                    {companyList.slice(0, 3).map(({ href, label }) => (
-                      <li key={label}>
-                        <a href={href} className="text-gray-400 hover:text-white">
-                          {label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-medium text-white">{t("footer.legal.title", "Legal")}</h4>
-                <ul className="mt-4 space-y-2">
-                  <li>
-                    <a href="#privacy" className="text-gray-400 hover:text-white">
-                      {t("footer.legal.privacy")}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#terms" className="text-gray-400 hover:text-white">
-                      {t("footer.legal.terms")}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#cookies" className="text-gray-400 hover:text-white">
-                      {t("footer.legal.cookies")}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          )}
+                )
+              )}
+            </ul>
+          </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-400">
-            {t("footer.copyright", { year: currentYear })}
+        {/* Divider */}
+        <div className="my-10 h-px bg-gradient-to-r from-transparent via-purple-700/50 to-transparent" />
+
+        {/* Bottom */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 gap-4">
+          <p>© 2026 Axia Digitech. All rights reserved.</p>
+          <p className="text-xs">
+            Designed with precision & performance in mind
           </p>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
