@@ -1,56 +1,50 @@
 import { Menu, Sparkles, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import ServiceProvidedBrands from './ServiceProvidedBrands';
-// import Theme from '../forms/Theme.jsx';
+
+const PRIMARY = '#4b0082';
+const SECONDARY = '#ff6600';
 
 const Navbar = () => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [selectedMenu, setSelectedMenu] = useState('home');
 	const [scrolled, setScrolled] = useState(false);
-	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
 	useEffect(() => {
 		const handleScroll = () => setScrolled(window.scrollY > 20);
-		const handleMouseMove = e => {
-			setMousePosition({ x: e.clientX, y: e.clientY });
-		};
-
 		window.addEventListener('scroll', handleScroll);
-		window.addEventListener('mousemove', handleMouseMove);
-
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-			window.removeEventListener('mousemove', handleMouseMove);
-		};
+		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
+	const menuItems = ['Home', 'Services', 'Projects', 'About', 'Contact'];
+
 	return (
-		<div className="fixed top-0 w-full z-50 transition-all duration-500">
+		<div className="fixed top-0 w-full z-50">
+			{/* Top Brand Strip */}
 			<div className={scrolled ? 'hidden' : ''}>
 				<ServiceProvidedBrands />
 			</div>
+
 			<nav
-				className={` ${
-					scrolled
-						? 'bg-slate-900/80 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-purple-500/10'
-						: 'bg-transparent'
+				className={`transition-all duration-500 ${
+					scrolled ? 'bg-[#3c214f]' : 'bg-[#32243d]'
 				}`}
 			>
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="flex justify-between items-center h-20">
-						{/* Logo with Glow Effect */}
-						<a href="#" className="flex items-center gap-3 group relative">
+					<div className="flex justify-between items-center h-16">
+						{/* Logo */}
+						<a href="#" className="flex items-center gap-3 group">
 							<div className="relative">
-								<div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity" />
-								<div className="relative w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center shadow-lg">
+								<div className="absolute inset-0 bg-[#ff6600] blur-lg opacity-70 group-hover:opacity-100 transition-opacity rounded-full" />
+								<div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-[#4b0082] to-[#ff6600] flex items-center justify-center shadow-xl">
 									<Sparkles className="w-6 h-6 text-white" />
 								</div>
 							</div>
-							<div className="flex flex-col">
-								<span className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+							<div className="leading-tight">
+								<span className="text-2xl font-bold text-white">
 									Axia Digitech
 								</span>
-								<span className="text-xs text-purple-300/70 -mt-1">
+								<span className="block text-xs text-orange-200">
 									Digital Excellence
 								</span>
 							</div>
@@ -58,35 +52,32 @@ const Navbar = () => {
 
 						{/* Desktop Menu */}
 						<div className="hidden md:flex items-center gap-2">
-							{['Home', 'Services', 'About', 'Team', 'Contact'].map(item => (
-								<a
-									key={item}
-									href={`#${item.toLowerCase()}`}
-									onClick={() => setSelectedMenu(item.toLowerCase())}
-									className={`relative px-6 py-2.5 text-sm font-medium transition-all duration-300 rounded-full group ${
-										selectedMenu === item.toLowerCase()
-											? 'text-white'
-											: 'text-gray-300 hover:text-white'
-									}`}
-								>
-									{selectedMenu === item.toLowerCase() && (
-										<span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full" />
-									)}
-									<span className="relative z-10">{item}</span>
-									{selectedMenu !== item.toLowerCase() && (
-										<span className="absolute inset-0 bg-white/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-									)}
-								</a>
-							))}
-							<button className="ml-4 px-6 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105">
-								Get Started
-							</button>
+							{menuItems.map(item => {
+								const key = item.toLowerCase();
+								return (
+									<a
+										key={item}
+										href={`#${key}`}
+										onClick={() => setSelectedMenu(key)}
+										className={`relative px-6 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
+											selectedMenu === key
+												? 'text-white'
+												: 'text-white/80 hover:text-white'
+										}`}
+									>
+										{selectedMenu === key && (
+											<span className="absolute inset-0 bg-[#ff6600] rounded-full shadow-lg" />
+										)}
+										<span className="relative z-10">{item}</span>
+									</a>
+								);
+							})}
 						</div>
 
-						{/* Mobile Menu Button */}
+						{/* Mobile Button */}
 						<button
 							onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-							className="md:hidden relative w-10 h-10 flex items-center justify-center text-white bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-all"
+							className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 text-white hover:bg-white/20 transition"
 						>
 							{mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
 						</button>
@@ -95,37 +86,51 @@ const Navbar = () => {
 
 				{/* Mobile Menu */}
 				{mobileMenuOpen && (
-					<div className="md:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-white/10">
+					<div className="md:hidden absolute top-full left-0 w-full bg-[#4b0082]/95 backdrop-blur-xl border-t border-white/10">
 						<div className="px-4 py-6 space-y-2">
-							{['Home', 'Services', 'About', 'Team', 'Contact'].map(
-								(item, index) => (
+							{menuItems.map((item, index) => {
+								const key = item.toLowerCase();
+								return (
 									<a
 										key={item}
-										href={`#${item.toLowerCase()}`}
+										href={`#${key}`}
 										onClick={() => {
-											setSelectedMenu(item.toLowerCase());
+											setSelectedMenu(key);
 											setMobileMenuOpen(false);
 										}}
-										className={`block px-6 py-3 rounded-xl font-medium transition-all ${
-											selectedMenu === item.toLowerCase()
-												? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
-												: 'text-gray-300 hover:bg-white/5'
+										className={`block px-6 py-3 rounded-xl text-base font-medium transition-all ${
+											selectedMenu === key
+												? 'bg-[#ff6600] text-white shadow-lg'
+												: 'text-white/80 hover:bg-white/10'
 										}`}
 										style={{
-											animation: `slideDown 0.3s ease-out forwards ${
-												index * 0.1
-											}s`,
+											animation: `fadeSlide 0.3s ease forwards`,
+											animationDelay: `${index * 0.08}s`,
 											opacity: 0,
 										}}
 									>
 										{item}
 									</a>
-								)
-							)}
+								);
+							})}
 						</div>
 					</div>
 				)}
 			</nav>
+
+			{/* Mobile Animation */}
+			<style>{`
+				@keyframes fadeSlide {
+					from {
+						opacity: 0;
+						transform: translateY(-10px);
+					}
+					to {
+						opacity: 1;
+						transform: translateY(0);
+					}
+				}
+			`}</style>
 		</div>
 	);
 };

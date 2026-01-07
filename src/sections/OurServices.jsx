@@ -1,124 +1,129 @@
-import { ChevronRight } from "lucide-react";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import digitalMarketingImg from "../assets/digital.webp";
-import graphicsDesignImg from "../assets/graphics.webp";
-// import seoImg from "../assets/seo.webp";
-import socialMediaImg from "../assets/business-setup.webp";
-import webDevelopmentImg from "../assets/website-development.webp";
-import useMediaQuery from "../utils/useMediaQuery.js";
+import 'swiper/css';
+import 'swiper/css/autoplay';
+
+import socialMediaImg from '../assets/business-setup.webp';
+import digitalMarketingImg from '../assets/digital.webp';
+import graphicsDesignImg from '../assets/graphics.webp';
+import webDevelopmentImg from '../assets/website-development.webp';
+import useMediaQuery from '../utils/useMediaQuery.js';
 
 const OurServices = () => {
-  const { t } = useTranslation();
-  const isMobile = useMediaQuery("(max-width: 768px)");
+	const isMobile = useMediaQuery('(max-width: 768px)');
 
-  const services = [
-    {
-      title: t("services.digitalMarketing"),
-      description: t("services.digitalMarketingDesc"),
-      image: digitalMarketingImg,
-      link: "/services/digital-marketing",
-    },
-    {
-      title: t("services.websiteDevelopment"),
-      description: t("services.websiteDevelopmentDesc"),
-      image: webDevelopmentImg,
-      link: "/services/website-development",
-    },
-    {
-      title: t("services.graphicsDesign"),
-      description: t("services.graphicsDesignDesc"),
-      image: graphicsDesignImg,
-      link: "/services/graphics-design",
-    },
-    {
-      title: t("services.socialMediaManagement"),
-      description: t("services.socialMediaManagementDesc"),
-      image: socialMediaImg,
-      link: "/services/social-media-management",
-    },
-    // {
-    //   title: t("services.seo"),
-    //   description: t("services.seoDesc"),
-    //   image: seoImg,
-    //   link: "/services/seo",
-    // },
-  ];
+	const services = [
+		{
+			title: 'Digital Marketing',
+			description: 'We help your brand reach the right audience.',
+			image: digitalMarketingImg,
+			link: '/services/digital-marketing',
+		},
+		{
+			title: 'Website Development',
+			description: 'Building responsive and high-performing websites.',
+			image: webDevelopmentImg,
+			link: '/services/website-development',
+		},
+		{
+			title: 'Graphics Design',
+			description: 'Creative and impactful visual design solutions.',
+			image: graphicsDesignImg,
+			link: '/services/graphics-design',
+		},
+		{
+			title: 'Social Media Management',
+			description: 'Manage your social media presence effectively.',
+			image: socialMediaImg,
+			link: '/services/social-media-management',
+		},
+	];
 
-  return (
-    <div id="services" className="py-5 md:py-2 scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <Link to="/services" className="text-2xl font-bold text-gray-900 dark:text-white">
-            {t("sectionTitles.ourServices")}
-          </Link>
-          <p className="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            {t("services.servicesIntro")}
-          </p>
-        </div>
-{/* !isMobile ? ( */}
-        {
-          <div className="mt-10 grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {services.map((service, index) => (
-              <Link
-                to={service.link}
-                key={index}
-                className="bg-sky-50 hover:bg-sky-100 dark:bg-white/10 hover:dark:bg-white/20 border border-white/30 dark:border-white/20 rounded-lg shadow-sm hover:shadow-md flex flex-col transition-transform duration-300 hover:-translate-y-3"
-              >
-                <div className="w-full">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-contain rounded-tr-md rounded-tl-md"
-                  />
-                </div>
-                <div className="flex flex-col justify-between flex-1 p-4">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-center">
-                      {service.title}
-                    </h3>
-                    <p className="mt-3 text-gray-600 dark:text-gray-300 text-center">
-                      {service.description}
-                    </p>
-                  </div>
-                  <div className="mt-6 flex justify-center">
-                    <p className="inline-flex items-center text-indigo-600 dark:text-purple-300 font-medium">
-                      {t("services.learnMore")} <ChevronRight size={16} className="ml-1" />
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        // ) : (
-        //   <div className="mt-16 grid gap-6">
-        //     {services.map((service, index) => (
-        //       <Link
-        //         to={service.link}
-        //         key={index}
-        //         className="flex h-44 bg-gray-100 hover:bg-slate-200 dark:bg-white/10 hover:dark:bg-white/20 border border-white/30 dark:border-white/20 rounded-lg shadow-sm hover:shadow-md transition-transform duration-300 hover:-translate-y-3"
-        //       >
-        //         <div className="w-1/2 h-full">
-        //           <img
-        //             src={service.image}
-        //             alt={service.title}
-        //             className="w-full h-full object-fill rounded-l-lg"
-        //           />
-        //         </div>
-        //         <div className="w-1/2 flex flex-col justify-between p-2 h-full">
-        //           <p className="mt-3 text-gray-600 dark:text-gray-300 text-center">
-        //             {service.description}
-        //           </p>
-        //         </div>
-        //       </Link>
-        //     ))}
-        //   </div>
-        // )
-        }
-      </div>
-    </div>
-  );
+	return (
+		<section
+			id="services"
+			className="max-w-7xl py-5 border-y-2 border-[#ff6600] border-max-w-2xl mx-auto"
+		>
+			<div className="py-10 mx-auto px-4 sm:px-6 lg:px-8">
+				{/* Heading */}
+				<motion.div
+					className="text-center mb-12"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.8 }}
+				>
+					<h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+						Our Services
+					</h2>
+					<p className="text-xl text-purple-200 max-w-2xl mx-auto">
+						Check out our range of services designed to help your business grow.
+					</p>
+				</motion.div>
+
+				{/* Slider */}
+				<Swiper
+					modules={[Autoplay]}
+					spaceBetween={30}
+					slidesPerView={isMobile ? 1 : 2}
+					loop={true}
+					autoplay={{ delay: 2500, disableOnInteraction: false }}
+					breakpoints={{
+						640: { slidesPerView: 1 },
+						768: { slidesPerView: 2 },
+						1024: { slidesPerView: 3 },
+					}}
+				>
+					{services.map((service, index) => (
+						<SwiperSlide key={index} className="flex justify-center px-2">
+							<motion.div
+								whileHover={{ scale: 1.05, rotate: 1 }}
+								initial={{ opacity: 0, y: 30 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{ duration: 0.6, delay: index * 0.15 }}
+								className="w-full max-w-sm bg-gradient-to-tr from-purple-800/80 to-purple-700/50 rounded-3xl shadow-2xl overflow-hidden border border-purple-500 hover:border-purple-300 cursor-pointer"
+							>
+								{/* Image */}
+								<div className="w-full h-88 relative overflow-hidden rounded-t-3xl">
+									<img
+										src={service.image}
+										alt={service.title}
+										className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+									/>
+									<div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+								</div>
+
+								{/* Content */}
+								<div className="p-6 flex flex-col justify-between bg-[#FF6600]">
+									<div className="text-center">
+										<h3 className="text-xl font-bold text-white mb-2">
+											{service.title}
+										</h3>
+										<p className="text-purple-200 text-sm">
+											{service.description}
+										</p>
+									</div>
+									<div className="mt-4 flex justify-center">
+										<Link
+											to={service.link}
+											className="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-medium"
+										>
+											Learn More <ChevronRight size={16} className="ml-1" />
+										</Link>
+									</div>
+								</div>
+							</motion.div>
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</div>
+		</section>
+	);
 };
 
 export default OurServices;
