@@ -127,6 +127,9 @@ export default function Hero() {
           <div className="absolute top-1/4 -right-4 w-72 h-72 bg-orange-600 rounded-full blur-3xl opacity-20 animate-pulse"></div>
         </div>
       </div>
+      <div className="relative z-10 flex justify-center py-20">
+        <div className="w-1 h-24 bg-gradient-to-b from-orange-600 via-purple-700 to-purple-900 rounded-full"></div>
+      </div>
     </div>
   );
 }
