@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   Award,
   Rocket,
   Sparkles,
@@ -74,18 +73,17 @@ export default function GrowBusinessSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-purple-950 to-slate-900">
+    <section className="relative overflow-hidden py-32">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute w-96 h-96 bg-orange-600 rounded-full blur-3xl opacity-10 top-0 left-1/4 animate-pulse"></div>
+        <div className="absolute w-72 h-72 bg-orange-600 rounded-full blur-3xl opacity-10 top-30 left-82 animate-pulse"></div>
         <div
-          className="absolute w-96 h-96 bg-purple-800 rounded-full blur-3xl opacity-10 top-1/2 right-1/4 animate-pulse"
-          style={{ animationDelay: "1.5s" }}
+          className="absolute w-96 h-96 bg-purple-800 rounded-full blur-3xl opacity-10 top-105 right-20 animate-pulse"
+          style={{ animationDelay: "2s" }}
         ></div>
       </div>
-
       {/* ================= Grow Your Business Section ================= */}
-      <div ref={businessRef} className="relative py-20 md:py-32">
+      <div ref={businessRef} className="relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Section Badge */}
           <div className="flex justify-center mb-6">
@@ -96,27 +94,22 @@ export default function GrowBusinessSection() {
               </span>
             </div>
           </div>
-
           {/* Main Heading */}
           <h2
-            className={`text-center text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-16 transition-all duration-1000 ${
+            className={`text-center text-4xl md:text-5xl lg:text-6xl font-extrabold text-white transition-all duration-1000 ${
               isVisible.business
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
           >
             Grow Your Business with{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-600 to-purple-600 inline-block">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-600 to-purple-600 inline-block mb-10">
               AXIA DIGITECH
             </span>
           </h2>
-
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* ================= LEFT PART ================= */}
-            <div
-              className="space-y-8 transition-all duration-1000 delay-200"
-              style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-            >
+            <div className="space-y-8 transition-all duration-1000 delay-200">
               {/* Description Cards */}
               <div className="space-y-6">
                 <div className="group p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-purple-800/30 hover:border-orange-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-900/30">
@@ -170,22 +163,10 @@ export default function GrowBusinessSection() {
               </div>
 
               {/* CTA Button */}
-              <div className="pt-4">
-                <a
-                  href="#contact"
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-600 to-purple-800 text-white rounded-full font-bold hover:shadow-2xl hover:shadow-orange-600/50 transition-all duration-300 transform hover:scale-105"
-                >
-                  Get Started
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </div>
             </div>
 
             {/* ================= RIGHT PART ================= */}
-            <div
-              className="space-y-8 transition-all duration-1000 delay-200"
-              style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-            >
+            <div className="space-y-8 transition-all duration-1000 delay-200">
               {/* Description Cards */}
               <div className="space-y-6">
                 <div className="group p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-orange-800/30 hover:border-purple-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-900/30">
@@ -239,40 +220,13 @@ export default function GrowBusinessSection() {
               </div>
 
               {/* CTA Button */}
-              <div className="pt-4">
-                <a
-                  href="#contact"
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-700 to-orange-600 text-white rounded-full font-bold hover:shadow-2xl hover:shadow-purple-600/50 transition-all duration-300 transform hover:scale-105"
-                >
-                  Get Started
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Divider with Icon */}
-      <div className="relative z-10 flex justify-center py-8">
-        <div className="w-1 h-24 bg-gradient-to-b from-orange-600 via-purple-700 to-purple-900 rounded-full"></div>
-      </div>
-
       {/* ================= Meet Our Team Section ================= */}
-      <div ref={teamRef} className="relative py-20 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Section Badge */}
-
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Image Side (Left on Desktop) */}
-
-            {/* Content Side (Right on Desktop) */}
-          </div>
-        </div>
-      </div>
-
       {/* Bottom Decorative Element */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-600/50 to-transparent"></div>
     </section>
   );
 }

@@ -1,25 +1,29 @@
 import AboutUs from "../sections/AboutUs";
+import ClientsPortfolio from "../sections/ClientsPortfolio";
 import ContactUs from "../sections/ContactUs";
 import GrowBusiness from "../sections/GrowBusiness";
 import Hero from "../sections/Hero";
-import MeetOurTeam from "../sections/MeetOurTeam";
 import Navbar from "../sections/Navbar";
+import OurDirectors from "../sections/OurDirectors";
 import OurServices from "../sections/OurServices";
+import ServicesSection from "../sections/ServicesSection";
+import Testimonials from "../sections/Testimonials";
 
 const Home = () => {
   return (
-    <div className="bg-white/10 max-w-7xl mx-auto rounded-3xl">
+    <div className="bg-gradient-to-b from-slate-900 via-purple-950 to-slate-900 max-w-7xl mx-auto rounded-3xl">
       {/* <HeroSection /> */}
       <Navbar />
       <Hero />
       <OurServices />
+      <ServicesSection />
 
       <GrowBusiness />
-      <hr className="max-w-72 md:max-w-6xl mx-auto" />
       <AboutUs />
-      <hr className="max-w-72 md:max-w-6xl mx-auto" />
-      <MeetOurTeam />
-      <hr className="max-w-72 md:max-w-6xl mx-auto md:hidden" />
+      {/* <MeetOurTeam /> */}
+      <ClientsPortfolio />
+      <OurDirectors />
+      <Testimonials />
       <ContactUs />
     </div>
   );

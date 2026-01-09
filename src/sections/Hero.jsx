@@ -52,6 +52,13 @@ export default function Hero() {
               <Play className="w-5 h-5" fill="white" />
               <span>Watch Demo</span>
             </button>
+            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+              <div className="absolute w-96 h-96 bg-orange-600 rounded-full blur-3xl opacity-[2%] top-30 left-1/4 animate-pulse"></div>
+              <div
+                className="absolute w-96 h-96 bg-purple-800 rounded-full blur-3xl opacity-[2%] top-1/2 right-1/4 animate-pulse"
+                style={{ animationDelay: "1.5s" }}
+              ></div>
+            </div>
           </div>
 
           {/* Metrics */}

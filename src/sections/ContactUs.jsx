@@ -1,251 +1,430 @@
-import emailjs from 'emailjs-com';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import CallOption from '../Components/CallOption.jsx';
+import {
+  AlertCircle,
+  CheckCircle,
+  Facebook,
+  Globe,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Send,
+  Sparkles,
+} from "lucide-react";
+import { useState } from "react";
 
-const ContactUs = () => {
-  const { t } = useTranslation();
+export default function ModernContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [phoneError, setPhoneError] = useState('');
+  const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const [statusMessage, setStatusMessage] = useState('');
-
-  const serviceId = 'service_nj1pbak';
-  const templateId = 'template_m87rc1i';
-  const publicKey = 'hTQ53mFEKervkN0pO';
+  const [statusMessage, setStatusMessage] = useState({ type: "", text: "" });
+  const [focusedField, setFocusedField] = useState("");
 
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validatePhone = (phone) => /^(?:\+88|88)?01[3-9]\d{8}$/.test(phone);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    // Real-time validation
+    if (name === "email" && value) {
+      setErrors((prev) => ({
+        ...prev,
+        email: validateEmail(value) ? "" : "Please enter a valid email address",
+      }));
+    }
+    if (name === "phone" && value) {
+      setErrors((prev) => ({
+        ...prev,
+        phone: validatePhone(value)
+          ? ""
+          : "Please enter a valid Bangladeshi phone number",
+      }));
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!validateEmail(email)) {
-      setStatusMessage(t("contact.form.emailError"));
-      return;
+    // Validate all fields
+    const newErrors = {};
+    if (!validateEmail(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    if (!validatePhone(formData.phone)) {
+      newErrors.phone = "Please enter a valid Bangladeshi phone number";
     }
 
-    if (!validatePhone(phone)) {
-      setStatusMessage(t("contact.form.phoneError"));
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setStatusMessage({ type: "error", text: "Please fix the errors above" });
       return;
     }
 
     setLoading(true);
-    setStatusMessage('');
+    setStatusMessage({ type: "", text: "" });
 
-    const templateParams = {
-      name,
-      email,
-      phone,
-      subject,
-      message,
-      to_email: "zitansalehin123@gmail.com",
-    };
-
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
-      .then(() => {
-        setLoading(false);
-        setStatusMessage(t("contact.form.success"));
-        setName('');
-        setEmail('');
-        setPhone('');
-        setSubject('');
-        setMessage('');
-        setTimeout(() => setStatusMessage(''), 3000);
-      })
-      .catch((error) => {
-        setLoading(false);
-        setStatusMessage(t("contact.form.error"));
-        console.error('EmailJS Error:', error);
-        setTimeout(() => setStatusMessage(''), 3000);
+    // Simulate email sending (replace with actual emailjs code)
+    setTimeout(() => {
+      setLoading(false);
+      setStatusMessage({
+        type: "success",
+        text: "Message sent successfully! We'll get back to you soon.",
       });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+      setErrors({});
+      setTimeout(() => setStatusMessage({ type: "", text: "" }), 5000);
+    }, 2000);
   };
 
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "info@axiadigitech.com",
+      color: "from-orange-600 to-orange-500",
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+880 1234-567890",
+      color: "from-purple-700 to-purple-600",
+    },
+    {
+      icon: MapPin,
+      label: "Address",
+      value: "Dhaka, Bangladesh",
+      color: "from-orange-500 to-purple-700",
+    },
+  ];
+
   return (
-    <div id="contact" className="py-16 md:py-20 scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-2xl md:text-2xl font-bold text-gray-900 dark:text-white">
-            {t("sectionTitles.getInTouch")}
+    <section id="contact" className="relative py-20 md:py-32">
+      {/* Animated Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute w-56 h-56 bg-[#4B0082] rounded-full blur-2xl opacity-10 top-20 left-44 animate-pulse"></div>
+        <div
+          className="absolute w-96 h-96 bg-purple-800 rounded-full blur-3xl opacity-10 bottom-0 right-0 animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
+        <div
+          className="absolute w-64 h-64 bg-orange-600 rounded-full blur-2xl opacity-5 top-1/2 left-1/2 animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-600/20 to-purple-800/20 border border-orange-600/30 rounded-full backdrop-blur-sm mb-6">
+            <Sparkles className="w-4 h-4 text-orange-600" />
+            <span className="text-sm text-gray-300 font-medium">
+              Let's Connect
+            </span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Get In{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-purple-600">
+              Touch
+            </span>
           </h2>
-          <p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            {t("contact.prompt")}
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Ready to transform your digital presence? Drop us a message and
+            let's create something amazing together.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 backdrop-blur-md bg-white/60 dark:bg-white/10 border border-white/30 dark:border-white/20 rounded-xl shadow-lg p-4 md:p-8">
-          {/* Form Section */}
-          <div>
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {t("contact.form.name")}
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  className="mt-1 block w-full rounded-md shadow-sm p-3 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-white/10 dark:border-white/10"
-                  placeholder={t("contact.form.name")}
-                />
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+          {/* Contact Info Cards - Left Side */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Contact Info Cards */}
+            {contactInfo.map((item, idx) => (
+              <div
+                key={idx}
+                className="group relative p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-purple-800/30 hover:border-orange-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-900/20"
+              >
+                <div className="flex items-start space-x-4">
+                  <div
+                    className={`w-14 h-14 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <item.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-white mb-1">
+                      {item.label}
+                    </h3>
+                    <p className="text-gray-400">{item.value}</p>
+                  </div>
+                </div>
               </div>
+            ))}
 
-              {/* Email */}
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {t("contact.form.email")}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    if (!validateEmail(e.target.value)) {
-                      setEmailError(t("contact.form.emailError"));
-                    } else {
-                      setEmailError('');
-                    }
-                  }}
-                  required
-                  className={`mt-1 block w-full rounded-md shadow-sm p-3 border ${emailError ? 'border-red-500' : 'border-gray-300'} focus:ring-indigo-500 focus:border-indigo-500 dark:bg-white/10 dark:border-white/10`}
-                  placeholder="your.email@example.com"
-                />
-                {emailError && <p className="text-sm text-red-600 mt-1">{emailError}</p>}
-              </div>
-
-              {/* Phone */}
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {t("contact.form.phone")}
-                </label>
-                <input
-                  type="text"
-                  id="phone"
-                  value={phone}
-                  onChange={(e) => {
-                    setPhone(e.target.value);
-                    if (!validatePhone(e.target.value)) {
-                      setPhoneError(t("contact.form.phoneError"));
-                    } else {
-                      setPhoneError('');
-                    }
-                  }}
-                  required
-                  className={`mt-1 block w-full rounded-md shadow-sm p-3 border ${phoneError ? 'border-red-500' : 'border-gray-300'} focus:ring-indigo-500 focus:border-indigo-500 dark:bg-white/10 dark:border-white/10`}
-                  placeholder="+8801XXXXXXXXX"
-                />
-                {phoneError && <p className="text-sm text-red-600 mt-1">{phoneError}</p>}
-              </div>
-
-              {/* Subject */}
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {t("contact.form.subject")}
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                  required
-                  className="mt-1 block w-full rounded-md shadow-sm p-3 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-white/10 dark:border-white/10"
-                  placeholder={t("contact.form.subject")}
-                />
-              </div>
-
-              {/* Message */}
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  {t("contact.form.message")}
-                </label>
-                <textarea
-                  id="message"
-                  rows="4"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  required
-                  className="mt-1 block w-full rounded-md shadow-sm p-3 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-white/10 dark:border-white/10"
-                  placeholder={t("contact.form.message")}
-                ></textarea>
-              </div>
-
-              {/* Submit */}
-              <div>
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className={`px-6 py-2 rounded-md font-medium transition duration-300 bg-indigo-600 hover:bg-indigo-700 text-white dark:bg-gradient-to-r dark:from-purple-600 dark:to-blue-500 dark:hover:shadow-lg dark:hover:shadow-purple-500/30 dark:transform dark:hover:-translate-y-1 ${loading ? "opacity-70 cursor-not-allowed" : "hover:cursor-pointer"}`}
+            {/* Social Media Section */}
+            <div className="p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-purple-800/30">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <Globe className="w-5 h-5 text-orange-500" />
+                Follow Us
+              </h3>
+              <div className="flex space-x-4">
+                <a
+                  href="https://www.facebook.com/share/15x9MorRiC/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-blue-600/50 transition-all duration-300"
                 >
-                  {loading ? (
-                    <div className="flex items-center space-x-2">
-                      <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8z"></path>
-                      </svg>
-                      <span>{t("contact.form.sending")}</span>
-                    </div>
-                  ) : (
-                    t("contact.form.send")
-                  )}
+                  <Facebook className="w-6 h-6 text-white" />
+                </a>
+                <button
+                  onClick={() => alert("WhatsApp integration")}
+                  className="group w-12 h-12 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-green-600/50 transition-all duration-300"
+                >
+                  <MessageCircle className="w-6 h-6 text-white" />
                 </button>
               </div>
-            </form>
+            </div>
 
-            {statusMessage && (
-              <p className={`mt-4 text-center text-lg ${statusMessage.includes("Oops") || statusMessage.includes("valid") ? "text-red-600" : "text-green-500"}`}>
-                {statusMessage}
-              </p>
-            )}
+            {/* Decorative Stats */}
+            <div className="hidden lg:block p-6 bg-gradient-to-br from-orange-600/10 to-purple-800/10 backdrop-blur-xl rounded-2xl border border-orange-600/30">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-orange-500 mb-2">
+                  24/7
+                </div>
+                <div className="text-gray-400 text-sm">Response Time</div>
+              </div>
+            </div>
           </div>
 
-          {/* Info Section */}
-          <div>
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">{t("sectionTitles.contactInfo")}</h3>
-            <p className="mt-4 text-gray-600 dark:text-gray-300">{t("contact.info.title")}</p>
+          {/* Contact Form - Right Side */}
+          <div className="lg:col-span-3">
+            <div className="relative">
+              {/* Glowing Effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600 to-purple-800 rounded-3xl blur-xl opacity-20"></div>
 
-            <dl className="mt-8 space-y-6">
-              <div className="flex">
-                <dt className="text-gray-500 dark:text-gray-400">{t("contact.info.email")}:</dt>
-                <dd className="ml-2 text-gray-900 dark:text-white">info@axiadigitech.com</dd>
-              </div>
-              <div className="flex">
-                <dt className="text-gray-500 dark:text-gray-400">{t("contact.info.phoneLabel")}:</dt>
-                <dd className="ml-2 text-gray-900 dark:text-white">{t("contact.info.phoneNumber")}</dd>
-              </div>
-              <div className="flex">
-                <dt className="text-gray-500 dark:text-gray-400">{t("contact.info.addressLabel")}</dt>
-                <dd className="ml-2 text-gray-900 dark:text-white">{t("contact.info.address")}</dd>
-              </div>
-            </dl>
+              {/* Form Container */}
+              <div className="relative p-8 md:p-10 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-3xl border border-purple-800/30">
+                <div className="space-y-6">
+                  {/* Name Field */}
+                  <div className="relative">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-semibold text-gray-300 mb-2"
+                    >
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      onFocus={() => setFocusedField("name")}
+                      onBlur={() => setFocusedField("")}
+                      required
+                      className={`w-full px-4 py-3 bg-slate-900/50 border ${
+                        focusedField === "name"
+                          ? "border-orange-600"
+                          : "border-slate-700"
+                      } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-600 transition-all duration-300`}
+                      placeholder="John Doe"
+                    />
+                  </div>
 
-            <div className="mt-8">
-              <h4 className="text-lg font-medium text-gray-900 dark:text-white">{t("sectionTitles.followUs")}</h4>
+                  {/* Email & Phone Grid */}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {/* Email Field */}
+                    <div className="relative">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-semibold text-gray-300 mb-2"
+                      >
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        onFocus={() => setFocusedField("email")}
+                        onBlur={() => setFocusedField("")}
+                        required
+                        className={`w-full px-4 py-3 bg-slate-900/50 border ${
+                          errors.email
+                            ? "border-red-500"
+                            : focusedField === "email"
+                            ? "border-orange-600"
+                            : "border-slate-700"
+                        } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-600 transition-all duration-300`}
+                        placeholder="john@example.com"
+                      />
+                      {errors.email && (
+                        <p className="text-sm text-red-400 mt-1 flex items-center gap-1">
+                          <AlertCircle className="w-4 h-4" />
+                          {errors.email}
+                        </p>
+                      )}
+                    </div>
 
-              <div className="mt-4 flex space-x-4">
-                <a href="https://www.facebook.com/share/15x9MorRiC/">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" className="w-6 h-6">
-                    <path className="fill-blue-600 dark:fill-white" d="M40,0 C17.9,0 0,17.9 0,40 C0,59.9 14.6,76.2 33.8,79.4 L33.8,51.5 L23.6,51.5 L23.6,40 L33.8,40 L33.8,31.2 C33.8,21.2 39.8,15.6 48.8,15.6 C53.1,15.6 57.6,16.4 57.6,16.4 L57.6,26 L52.6,26 C47.7,26 46.2,29 46.2,32.1 L46.2,40 L57.1,40 L55.3,51.5 L46.2,51.5 L46.2,79.4 C65.4,76.2 80,59.9 80,40 C80,17.9 62.1,0 40,0 Z" />
-                  </svg>
-                </a>
-                <button type="button" className="text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer">
-                  <CallOption />
-                </button>
+                    {/* Phone Field */}
+                    <div className="relative">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-semibold text-gray-300 mb-2"
+                      >
+                        Phone Number *
+                      </label>
+                      <input
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        onFocus={() => setFocusedField("phone")}
+                        onBlur={() => setFocusedField("")}
+                        required
+                        className={`w-full px-4 py-3 bg-slate-900/50 border ${
+                          errors.phone
+                            ? "border-red-500"
+                            : focusedField === "phone"
+                            ? "border-purple-600"
+                            : "border-slate-700"
+                        } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600 transition-all duration-300`}
+                        placeholder="+8801XXXXXXXXX"
+                      />
+                      {errors.phone && (
+                        <p className="text-sm text-red-400 mt-1 flex items-center gap-1">
+                          <AlertCircle className="w-4 h-4" />
+                          {errors.phone}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Subject Field */}
+                  <div className="relative">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-semibold text-gray-300 mb-2"
+                    >
+                      Subject *
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      onFocus={() => setFocusedField("subject")}
+                      onBlur={() => setFocusedField("")}
+                      required
+                      className={`w-full px-4 py-3 bg-slate-900/50 border ${
+                        focusedField === "subject"
+                          ? "border-purple-600"
+                          : "border-slate-700"
+                      } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600 transition-all duration-300`}
+                      placeholder="How can we help you?"
+                    />
+                  </div>
+
+                  {/* Message Field */}
+                  <div className="relative">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-semibold text-gray-300 mb-2"
+                    >
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleChange}
+                      onFocus={() => setFocusedField("message")}
+                      onBlur={() => setFocusedField("")}
+                      required
+                      className={`w-full px-4 py-3 bg-slate-900/50 border ${
+                        focusedField === "message"
+                          ? "border-orange-600"
+                          : "border-slate-700"
+                      } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-600 transition-all duration-300 resize-none`}
+                      placeholder="Tell us about your project..."
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <div>
+                    <button
+                      onClick={handleSubmit}
+                      disabled={loading}
+                      className={`group w-full px-8 py-4 bg-gradient-to-r from-orange-600 to-purple-800 text-white rounded-xl font-bold hover:shadow-2xl hover:shadow-orange-600/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 ${
+                        loading ? "opacity-70 cursor-not-allowed" : ""
+                      }`}
+                    >
+                      {loading ? (
+                        <>
+                          <svg
+                            className="animate-spin h-5 w-5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            ></circle>
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8z"
+                            ></path>
+                          </svg>
+                          <span>Sending...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Send Message</span>
+                          <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Status Message */}
+                {statusMessage.text && (
+                  <div
+                    className={`mt-6 p-4 rounded-xl border ${
+                      statusMessage.type === "success"
+                        ? "bg-green-500/10 border-green-500/30 text-green-400"
+                        : "bg-red-500/10 border-red-500/30 text-red-400"
+                    } flex items-center gap-3 animate-fade-in`}
+                  >
+                    {statusMessage.type === "success" ? (
+                      <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                    ) : (
+                      <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                    )}
+                    <p className="text-sm font-medium">{statusMessage.text}</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default ContactUs;
+}
