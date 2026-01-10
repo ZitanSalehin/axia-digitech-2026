@@ -2,13 +2,7 @@ import { Zap } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-gray-300 overflow-hidden">
-      {/* Glow background */}
-      <div className="absolute inset-0">
-        <div className="absolute w-72 h-72 bg-orange-600/20 blur-3xl rounded-full -top-24 -left-24" />
-        <div className="absolute w-72 h-72 bg-purple-800/20 blur-3xl rounded-full bottom-0 right-0" />
-      </div>
-
+    <footer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-3xl mt-10 text-orange-400">
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
@@ -87,7 +81,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="my-10 h-px bg-gradient-to-r from-transparent via-purple-700/50 to-transparent" />
+        <div className="my-10 h-px bg-gradient-to-r from-transparent via-orange-600/50 to-transparent" />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 gap-4">
