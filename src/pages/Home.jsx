@@ -11,7 +11,7 @@ import Testimonials from "../sections/Testimonials";
 
 const Home = () => {
   return (
-    <div className="bg-gradient-to-b from-slate-900 via-purple-950 to-slate-900 max-w-7xl mx-auto rounded-3xl">
+    <div className="bg-slate-900 dark:bg-white max-w-7xl mx-auto rounded-3xl">
       {/* <HeroSection /> */}
       <Navbar />
       <Hero />

@@ -18,33 +18,35 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative pt-16 mt-28 pb-20 px-4 sm:px-6 lg:px-8">
+    <div className="relative pt-16 mt-28 pb-20 px-4 sm:px-6 lg:px-8 dark:bg-white">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <div className="space-y-8 animate-fade-in">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-600/20 to-purple-800/20 border border-orange-600/30 rounded-full backdrop-blur-sm">
             <Star className="w-4 h-4 text-orange-600" fill="#FF6600" />
-            <span className="text-sm text-gray-300 font-medium">
+            <span className="text-sm text-gray-300 font-medium dark:text-[#FF6600]">
               Award-Winning Digital Agency
             </span>
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
-            <span className="text-white">Transform Your</span>
+            <span className="text-white dark:text-[#FF6600]">
+              Transform Your
+            </span>
             <br />
-            <span className="bg-gradient-to-r from-orange-600 via-purple-500 to-purple-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 via-purple-500 to-purple-800 bg-clip-text text-transparent dark:text-slate-900">
               Digital Presence
             </span>
           </h1>
 
-          <p className="text-xl text-gray-400 leading-relaxed max-w-xl">
+          <p className="text-xl text-gray-400 dark:text-slate-600 leading-relaxed max-w-xl">
             Elevate your brand with data-driven marketing strategies that
             deliver real results. We turn clicks into customers and campaigns
             into conversions.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="group px-8 py-4 bg-gradient-to-r from-orange-600 to-purple-800 text-white rounded-full font-bold hover:shadow-2xl hover:shadow-orange-600/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+            <button className="group px-8 py-4 bg-linear-to-r from-orange-600 to-purple-800 dark:bg-[#FF6600] text-white rounded-full font-bold hover:shadow-2xl hover:shadow-orange-600/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
               <span>Start Your Campaign</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -52,7 +54,7 @@ export default function Hero() {
               <Play className="w-5 h-5" fill="white" />
               <span>Watch Demo</span>
             </button>
-            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40 dark:hidden">
               <div className="absolute w-96 h-96 bg-orange-600 rounded-full blur-3xl opacity-[2%] top-30 left-1/4 animate-pulse"></div>
               <div
                 className="absolute w-96 h-96 bg-purple-800 rounded-full blur-3xl opacity-[2%] top-1/2 right-1/4 animate-pulse"
@@ -131,7 +133,7 @@ export default function Hero() {
             ))}
           </div>
 
-          <div className="absolute top-1/4 -right-4 w-72 h-72 bg-orange-600 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+          <div className="absolute top-1/4 -right-4 w-72 h-72 bg-orange-600 rounded-full blur-3xl opacity-20 animate-pulse dark:hidden"></div>
         </div>
       </div>
       <div className="relative z-10 flex justify-center py-20">
