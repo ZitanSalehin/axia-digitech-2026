@@ -18,7 +18,6 @@ export default function GrowBusinessSection() {
     const handleScroll = () => {
       setScrollY(window.scrollY);
 
-      // Check visibility for animations
       const checkVisibility = (ref, key) => {
         if (ref.current) {
           const rect = ref.current.getBoundingClientRect();
@@ -57,12 +56,12 @@ export default function GrowBusinessSection() {
   const teamFeatures = [
     {
       icon: Users,
-      text: "Expert Professionals",
+      text: "Team Of Expert Professionals",
       color: "from-purple-700 to-purple-600",
     },
     {
       icon: Award,
-      text: "Award-Winning Results",
+      text: "Award-Winning Results & Achievement",
       color: "from-orange-600 to-orange-500",
     },
     {
@@ -74,73 +73,81 @@ export default function GrowBusinessSection() {
 
   return (
     <section className="relative overflow-hidden py-32">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute w-72 h-72 bg-orange-600 rounded-full blur-3xl opacity-10 top-30 left-82 animate-pulse"></div>
+      {/* Glow / Decorative Background */}
+      <div className="dark:hidden absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute w-72 h-72 bg-orange-600 rounded-full blur-3xl opacity-10 top-1/4 left-1/4 animate-pulse"></div>
         <div
-          className="absolute w-96 h-96 bg-purple-800 rounded-full blur-3xl opacity-10 top-105 right-20 animate-pulse"
+          className="absolute w-96 h-96 bg-purple-800 rounded-full blur-3xl opacity-10 top-1/2 right-1/4 animate-pulse"
           style={{ animationDelay: "2s" }}
         ></div>
       </div>
+
       {/* ================= Grow Your Business Section ================= */}
-      <div ref={businessRef} className="relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div ref={businessRef} className="relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Badge */}
+          {/* Badge / Small Highlight */}
           <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-600/20 to-purple-800/20 border border-orange-600/30 rounded-full backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-orange-600" />
-              <span className="text-sm text-gray-300 font-medium">
+            <div
+              className="inline-flex items-center space-x-2 px-4 py-2 
+                  bg-gradient-to-r from-[#FF6600]/20 to-[#4B0082]/20 
+                  dark:from-[#FF6600]/10 dark:to-[#FF6600]/5 
+                  border border-[#FF6600]/30 dark:border-[#FF6600]/40 
+                  rounded-full backdrop-blur-sm"
+            >
+              <Sparkles className="w-4 h-4 text-[#FF6600]" fill="#FF6600" />
+              <span className="text-sm text-gray-300 dark:text-[#FF6600] font-medium">
                 Transform Your Business
               </span>
             </div>
           </div>
+
           {/* Main Heading */}
-          <h2
-            className={`text-center text-4xl md:text-5xl lg:text-6xl font-extrabold text-white transition-all duration-1000 ${
-              isVisible.business
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            Grow Your Business with{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-600 to-purple-600 inline-block mb-10">
-              AXIA DIGITECH
-            </span>
-          </h2>
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* ================= LEFT PART ================= */}
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2
+              className={`text-center text-4xl sm:text-5xl lg:text-6xl font-extrabold 
+                  text-white dark:text-[#FF6600] transition-all duration-1000`}
+            >
+              <span className="text-white dark:text-[#FF6600]">
+                GROW YOUR BUSINESS WITH
+                <br />
+                <span
+                  className="bg-gradient-to-r from-[#FF6600] via-[#4B0082] to-[#4B0082] 
+                       bg-clip-text text-transparent 
+                       dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 inline-block"
+                >
+                  AXIA DIGITECH
+                </span>
+              </span>
+            </h2>
+            <p className="text-center text-xl text-gray-400 dark:text-slate-700 leading-relaxed mt-2">
+              Elevate Your Brand, Accelerate Your Growth
+            </p>
+          </div>
+
+          {/* Content Grid */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mt-12">
+            {/* LEFT PART */}
             <div className="space-y-8 transition-all duration-1000 delay-200">
               {/* Description Cards */}
               <div className="space-y-6">
-                <div className="group p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-purple-800/30 hover:border-orange-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-900/30">
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    We craft{" "}
-                    <span className="text-orange-500 font-semibold">
-                      innovative strategies
-                    </span>{" "}
-                    and solutions to elevate your business to new heights.
-                  </p>
-                </div>
-
-                <div className="group p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-purple-800/30 hover:border-orange-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-900/30">
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Our expert team provides{" "}
-                    <span className="text-purple-400 font-semibold">
-                      data-driven guidance
-                    </span>
-                    , helping you maximize growth and ROI.
-                  </p>
-                </div>
-
-                <div className="group p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-purple-800/30 hover:border-orange-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-900/30">
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Join a thriving community of{" "}
-                    <span className="text-orange-500 font-semibold">
-                      successful brands
-                    </span>{" "}
-                    and watch your business scale.
-                  </p>
-                </div>
+                {[
+                  "We craft innovative strategies and solutions to elevate your business to new heights.",
+                  "Our expert team provides data-driven guidance, helping you maximize growth and ROI.",
+                  "Join a thriving community of successful brands and watch your business scale.",
+                ].map((text, idx) => (
+                  <div
+                    key={idx}
+                    className="group p-6 bg-gradient-to-br from-slate-900/60 to-slate-800/60 dark:from-slate-800/50 dark:to-slate-700/50 
+                     backdrop-blur-xl rounded-2xl border border-purple-700/20 dark:border-purple-600/30 
+                     hover:border-orange-600/50 dark:hover:border-orange-500/50 
+                     transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-900/20"
+                  >
+                    <p className="text-white dark:text-white text-lg leading-relaxed">
+                      {text}
+                    </p>
+                  </div>
+                ))}
               </div>
 
               {/* Feature Icons */}
@@ -148,56 +155,47 @@ export default function GrowBusinessSection() {
                 {features.map((feature, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-col items-center py-5 px-2 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-orange-600/40 transition-all duration-300 hover:scale-105"
+                    className="flex flex-col items-center py-5 px-2 bg-gradient-to-br from-slate-100/90 to-slate-200/90 dark:from-slate-800/10 dark:to-slate-900/10
+  backdrop-blur-sm 
+  shadow-sm shadow-slate-400/20 dark:shadow-black/30 
+                     rounded-xl border border-white/10 dark:border-slate-300/20 
+                     hover:border-orange-600/40 dark:hover:border-orange-500/40 
+                     transition-all duration-300 hover:scale-105"
                   >
                     <div
-                      className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-3`}
+                      className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-3 shadow-md`}
                     >
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
-                    <p className="text-xs text-gray-400 text-center">
+                    <p className="text-sm text-slate-800 dark:text-[#FF6600] text-center">
                       {feature.text}
                     </p>
                   </div>
                 ))}
               </div>
-
-              {/* CTA Button */}
             </div>
 
-            {/* ================= RIGHT PART ================= */}
+            {/* RIGHT PART */}
             <div className="space-y-8 transition-all duration-1000 delay-200">
               {/* Description Cards */}
               <div className="space-y-6">
-                <div className="group p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-orange-800/30 hover:border-purple-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-900/30">
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Our team is made up of{" "}
-                    <span className="text-purple-400 font-semibold">
-                      experienced professionals
-                    </span>{" "}
-                    committed to driving results for your business.
-                  </p>
-                </div>
-
-                <div className="group p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-orange-800/30 hover:border-purple-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-900/30">
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    We value{" "}
-                    <span className="text-orange-500 font-semibold">
-                      innovation, collaboration
-                    </span>
-                    , and delivering measurable growth to our clients.
-                  </p>
-                </div>
-
-                <div className="group p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-orange-800/30 hover:border-purple-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-900/30">
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Meet the{" "}
-                    <span className="text-purple-400 font-semibold">
-                      talented individuals
-                    </span>{" "}
-                    who make our agency stand out in the digital space.
-                  </p>
-                </div>
+                {[
+                  "Our team is made up of experienced professionals committed to driving results for your business.",
+                  "We value innovation, collaboration, and delivering measurable growth to our clients.",
+                  "Meet the talented individuals who make our agency stand out in the digital space.",
+                ].map((text, idx) => (
+                  <div
+                    key={idx}
+                    className="group p-6 bg-gradient-to-br from-slate-900/60 to-slate-800/60 dark:from-slate-800/50 dark:to-slate-700/50 
+                     backdrop-blur-xl rounded-2xl border border-purple-700/20 dark:border-purple-600/30 
+                     hover:border-orange-600/50 dark:hover:border-orange-500/50 
+                     transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-900/20"
+                  >
+                    <p className="text-white dark:text-white text-lg leading-relaxed">
+                      {text}
+                    </p>
+                  </div>
+                ))}
               </div>
 
               {/* Team Feature Icons */}
@@ -205,28 +203,28 @@ export default function GrowBusinessSection() {
                 {teamFeatures.map((feature, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-col items-center py-5 px-2 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-purple-600/40 transition-all duration-300 hover:scale-105"
+                    className="flex flex-col items-center py-5 px-2 bg-gradient-to-br from-slate-100/90 to-slate-200/90 dark:from-slate-800/10 dark:to-slate-900/10
+  backdrop-blur-sm 
+  shadow-sm shadow-slate-400/20 dark:shadow-black/30 
+                     rounded-xl border border-white/10 dark:border-slate-300/20 
+                     hover:border-orange-600/40 dark:hover:border-orange-500/40 
+                     transition-all duration-300 hover:scale-105"
                   >
                     <div
-                      className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-3`}
+                      className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-3 shadow-md`}
                     >
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
-                    <p className="text-xs text-gray-400 text-center">
+                    <p className="text-sm text-slate-800 dark:text-[#FF6600] text-center">
                       {feature.text}
                     </p>
                   </div>
                 ))}
               </div>
-
-              {/* CTA Button */}
             </div>
           </div>
         </div>
       </div>
-
-      {/* ================= Meet Our Team Section ================= */}
-      {/* Bottom Decorative Element */}
     </section>
   );
 }
