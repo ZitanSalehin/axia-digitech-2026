@@ -6,34 +6,10 @@ import {
   TrendingUp,
   Users,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function GrowBusinessSection() {
-  const [scrollY, setScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState({ business: false, team: false });
   const businessRef = useRef(null);
-  const teamRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-
-      const checkVisibility = (ref, key) => {
-        if (ref.current) {
-          const rect = ref.current.getBoundingClientRect();
-          const isInView = rect.top < window.innerHeight * 0.75;
-          setIsVisible((prev) => ({ ...prev, [key]: isInView }));
-        }
-      };
-
-      checkVisibility(businessRef, "business");
-      checkVisibility(teamRef, "team");
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const features = [
     {
@@ -85,8 +61,6 @@ export default function GrowBusinessSection() {
       {/* ================= Grow Your Business Section ================= */}
       <div ref={businessRef} className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Badge */}
-          {/* Badge / Small Highlight */}
           <div className="flex justify-center mb-6">
             <div
               className="inline-flex items-center space-x-2 px-4 py-2 
@@ -102,7 +76,6 @@ export default function GrowBusinessSection() {
             </div>
           </div>
 
-          {/* Main Heading */}
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2
               className={`text-center text-4xl sm:text-5xl lg:text-6xl font-extrabold 
@@ -125,11 +98,8 @@ export default function GrowBusinessSection() {
             </p>
           </div>
 
-          {/* Content Grid */}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mt-12">
-            {/* LEFT PART */}
             <div className="space-y-8 transition-all duration-1000 delay-200">
-              {/* Description Cards */}
               <div className="space-y-6">
                 {[
                   "We craft innovative strategies and solutions to elevate your business to new heights.",
@@ -138,12 +108,15 @@ export default function GrowBusinessSection() {
                 ].map((text, idx) => (
                   <div
                     key={idx}
-                    className="group p-6 bg-gradient-to-br from-slate-900/60 to-slate-800/60 dark:from-slate-800/50 dark:to-slate-700/50 
-                     backdrop-blur-xl rounded-2xl border border-purple-700/20 dark:border-purple-600/30 
-                     hover:border-orange-600/50 dark:hover:border-orange-500/50 
-                     transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-900/20"
+                    className="relative group rounded-2xl overflow-hidden 
+         bg-gradient-to-br from-slate-100/90 to-slate-200/90
+         dark:from-slate-800/10 dark:to-slate-900/10
+         backdrop-blur-sm
+         shadow-sm shadow-slate-400/20 dark:shadow-black/30
+         px-[30px] py-[40px]
+         transition-all duration-300"
                   >
-                    <p className="text-white dark:text-white text-lg leading-relaxed">
+                    <p className="text-slate-800 dark:text-slate-600 text-xl">
                       {text}
                     </p>
                   </div>
@@ -159,15 +132,14 @@ export default function GrowBusinessSection() {
   backdrop-blur-sm 
   shadow-sm shadow-slate-400/20 dark:shadow-black/30 
                      rounded-xl border border-white/10 dark:border-slate-300/20 
-                     hover:border-orange-600/40 dark:hover:border-orange-500/40 
-                     transition-all duration-300 hover:scale-105"
+                     "
                   >
                     <div
                       className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-3 shadow-md`}
                     >
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
-                    <p className="text-sm text-slate-800 dark:text-[#FF6600] text-center">
+                    <p className="text-sm text-slate-800 dark:text-slate-800 text-center">
                       {feature.text}
                     </p>
                   </div>
@@ -175,9 +147,7 @@ export default function GrowBusinessSection() {
               </div>
             </div>
 
-            {/* RIGHT PART */}
             <div className="space-y-8 transition-all duration-1000 delay-200">
-              {/* Description Cards */}
               <div className="space-y-6">
                 {[
                   "Our team is made up of experienced professionals committed to driving results for your business.",
@@ -186,19 +156,21 @@ export default function GrowBusinessSection() {
                 ].map((text, idx) => (
                   <div
                     key={idx}
-                    className="group p-6 bg-gradient-to-br from-slate-900/60 to-slate-800/60 dark:from-slate-800/50 dark:to-slate-700/50 
-                     backdrop-blur-xl rounded-2xl border border-purple-700/20 dark:border-purple-600/30 
-                     hover:border-orange-600/50 dark:hover:border-orange-500/50 
-                     transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-900/20"
+                    className="relative group rounded-2xl overflow-hidden 
+         bg-gradient-to-br from-slate-100/90 to-slate-200/90
+         dark:from-slate-800/10 dark:to-slate-900/10
+         backdrop-blur-sm
+         shadow-sm shadow-slate-400/20 dark:shadow-black/30
+         px-[30px] py-[40px]
+         transition-all duration-300"
                   >
-                    <p className="text-white dark:text-white text-lg leading-relaxed">
+                    <p className="text-slate-800 dark:text-slate-600 text-xl">
                       {text}
                     </p>
                   </div>
                 ))}
               </div>
 
-              {/* Team Feature Icons */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
                 {teamFeatures.map((feature, idx) => (
                   <div
@@ -207,15 +179,15 @@ export default function GrowBusinessSection() {
   backdrop-blur-sm 
   shadow-sm shadow-slate-400/20 dark:shadow-black/30 
                      rounded-xl border border-white/10 dark:border-slate-300/20 
-                     hover:border-orange-600/40 dark:hover:border-orange-500/40 
-                     transition-all duration-300 hover:scale-105"
+ 
+                     "
                   >
                     <div
                       className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-3 shadow-md`}
                     >
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
-                    <p className="text-sm text-slate-800 dark:text-[#FF6600] text-center">
+                    <p className="text-sm text-slate-800 dark:text-slate-800 text-center">
                       {feature.text}
                     </p>
                   </div>

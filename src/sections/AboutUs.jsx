@@ -86,7 +86,6 @@ export default function ModernAboutSection() {
   const [counts, setCounts] = useState(stats.map(() => 0));
   const [isVisible, setIsVisible] = useState(false);
   const statsRef = useRef(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -112,7 +111,7 @@ export default function ModernAboutSection() {
           });
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (statsRef.current) observer.observe(statsRef.current);
@@ -121,230 +120,150 @@ export default function ModernAboutSection() {
   }, [isVisible]);
 
   // Auto-slide for journey cards
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide(
-        (prev) => (prev + 1) % Math.max(1, journeySteps.length - 2)
-      );
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section id="about" className="relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute w-96 h-96 bg-orange-600 rounded-full blur-3xl opacity-10 top-1/4 left-0 animate-pulse"></div>
+      {/* Decorative Glow (same style as previous) */}
+      <div className="dark:hidden absolute inset-0 pointer-events-none">
+        <div className="absolute w-96 h-96 bg-orange-600 rounded-full blur-3xl opacity-10 top-1/4 left-0 animate-pulse" />
         <div
           className="absolute w-96 h-96 bg-purple-800 rounded-full blur-3xl opacity-10 bottom-1/4 right-0 animate-pulse"
           style={{ animationDelay: "1.5s" }}
-        ></div>
-        <div
-          className="absolute w-64 h-64 bg-orange-600 rounded-full blur-2xl opacity-5 top-1/2 left-1/2 animate-pulse"
-          style={{ animationDelay: "0.5s" }}
-        ></div>
+        />
       </div>
 
-      {/* Intro + Stats Section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Intro */}
+      {/* Intro + Stats */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Stats */}
           <div ref={statsRef} className="grid grid-cols-2 gap-6">
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className="group relative p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-purple-800/30 hover:border-orange-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-900/30 cursor-pointer"
+                className="relative group rounded-2xl overflow-hidden 
+         bg-gradient-to-br from-slate-100/90 to-slate-200/90
+         dark:from-slate-800/10 dark:to-slate-900/10
+         backdrop-blur-sm
+         shadow-sm shadow-slate-400/20 dark:shadow-black/30
+         px-[30px] py-[40px]
+         transition-all duration-300"
               >
-                {/* Icon */}
                 <div
-                  className={`w-12 h-12 bg-gradient-to-br ${stat.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-12 h-12 bg-gradient-to-br ${stat.color}
+                rounded-xl flex items-center justify-center mb-4`}
                 >
                   <stat.icon className="w-6 h-6 text-white" />
                 </div>
 
-                {/* Count */}
-                <div className="text-4xl font-bold text-white mb-2">
+                <div className="text-4xl font-bold text-slate-700 dark:text-slate-600">
                   {counts[i]}
                   {stat.suffix}
                 </div>
 
-                {/* Label */}
-                <p className="text-gray-400 text-sm">{stat.label}</p>
-
-                {/* Decorative Corner */}
-                <div className="absolute top-2 right-2 w-2 h-2 bg-orange-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <p className="text-slate-700 dark:text-slate-500 text-sm">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
-          {/* Right: Stats Grid */}
+
+          {/* Text Content */}
           <div className="space-y-8">
-            {/* Badge */}
-            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-600/20 to-purple-800/20 border border-orange-600/30 rounded-full backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-orange-600" />
-              <span className="text-sm text-gray-300 font-medium">
+            <div
+              className="inline-flex items-center space-x-2 px-4 py-2
+            bg-gradient-to-r from-[#FF6600]/20 to-[#4B0082]/20
+            dark:from-[#FF6600]/10 dark:to-[#FF6600]/5
+            border border-[#FF6600]/30 rounded-full"
+            >
+              <Sparkles className="w-4 h-4 text-[#FF6600]" />
+              <span className="text-sm text-white dark:text-[#FF6600]">
                 Who We Are
               </span>
             </div>
 
-            {/* Heading */}
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-              Building Digital Systems{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-purple-600">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-white dark:text-[#FF6600]">
+              Building Digital Systems
+              <div
+                className="bg-gradient-to-r from-[#FF6600] via-[#4B0082] to-[#4B0082] 
+                       bg-clip-text text-transparent 
+                       dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 inline-block mt-2"
+              >
                 That Scale Businesses
-              </span>
+              </div>
             </h2>
 
-            {/* Description */}
-            <div className="space-y-4">
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Axia Digitech is not just an agency. We are a{" "}
-                <span className="text-orange-500 font-semibold">
-                  long-term digital partner
-                </span>{" "}
-                that helps brands design, build, and grow digital products with
-                clarity, speed, and purpose.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 pt-4">
-                <div className="p-4 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-xl border border-purple-800/30 hover:border-orange-600/50 transition-all duration-300">
-                  <div className="text-2xl font-bold text-orange-500 mb-1">
-                    10M+
-                  </div>
-                  <div className="text-xs text-gray-400">Digital Reach</div>
-                </div>
-                <div className="p-4 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-xl border border-purple-800/30 hover:border-orange-600/50 transition-all duration-300">
-                  <div className="text-2xl font-bold text-purple-500 mb-1">
-                    350%
-                  </div>
-                  <div className="text-xs text-gray-400">Avg ROI Growth</div>
-                </div>
-              </div>
-            </div>
+            <p className="text-lg text-gray-400 dark:text-slate-700 leading-relaxed">
+              Axia Digitech is a long-term digital partner helping brands grow
+              with clarity, speed, and purpose.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Journey Section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-32">
-        {/* Section Header */}
+      {/* Journey */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-800/20 to-orange-600/20 border border-purple-600/30 rounded-full backdrop-blur-sm mb-6">
-            <TrendingUp className="w-4 h-4 text-purple-500" />
-            <span className="text-sm text-gray-300 font-medium">
+          <div
+            className="inline-flex items-center space-x-2 px-4 py-2
+            bg-gradient-to-r from-[#FF6600]/20 to-[#4B0082]/20
+            dark:from-[#FF6600]/10 dark:to-[#FF6600]/5
+            border border-[#FF6600]/30 rounded-full"
+          >
+            <Sparkles className="w-4 h-4 text-[#FF6600]" />
+            <span className="text-sm text-white dark:text-[#FF6600]">
               Our Process
             </span>
           </div>
-
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Our{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-orange-600">
-              Journey
-            </span>
-          </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            A proven methodology that transforms ideas into successful digital
-            products
-          </p>
-        </div>
-
-        {/* Journey Cards - Desktop Carousel */}
-        <div className="hidden lg:block relative">
-          <div className="">
-            <div
-              className="flex transition-transform duration-700 ease-in-out gap-8"
-              style={{ transform: `translateX(-${currentSlide * 33.333}%)` }}
-            >
-              {journeySteps.map((step, i) => (
-                <div
-                  key={i}
-                  className="min-w-[calc(33.333%-1.333rem)] flex-shrink-0"
-                >
-                  <div className="relative h-full group">
-                    {/* Card */}
-                    <div
-                      className="relative p-10 pt-16
-  bg-gradient-to-br from-slate-800/80 to-slate-900/80
-  backdrop-blur-xl rounded-3xl
-  border border-purple-800/30
-  hover:border-orange-600/50
-  transition-all duration-500
-  hover:scale-105
-  hover:shadow-2xl hover:shadow-purple-900/30"
-                    >
-                      {/* Top Icon - Positioned Outside Card */}
-                      <div
-                        className={`absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br ${step.color} rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <step.icon className="w-7 h-7 text-white" />
-                      </div>
-
-                      {/* Content */}
-                      <div className="text-center">
-                        <h3 className="text-2xl font-bold text-white mb-3">
-                          {step.title}
-                        </h3>
-                        <p className="text-gray-400 leading-relaxed">
-                          {step.text}
-                        </p>
-                      </div>
-
-                      {/* Decorative Element */}
-                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-orange-600 to-purple-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Navigation Dots */}
-          <div className="flex justify-center gap-2 mt-12">
-            {Array.from({ length: Math.max(1, journeySteps.length - 2) }).map(
-              (_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentSlide === idx
-                      ? "bg-gradient-to-r from-orange-600 to-purple-700 w-8"
-                      : "bg-slate-700 hover:bg-slate-600"
-                  }`}
-                />
-              )
-            )}
-          </div>
-        </div>
-
-        {/* Journey Cards - Mobile Grid */}
-        <div className="lg:hidden grid sm:grid-cols-2 gap-8">
-          {journeySteps.map((step, i) => (
-            <div key={i} className="relative">
-              {/* Card */}
-              <div className="relative p-8 pt-16 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-3xl border border-purple-800/30 hover:border-orange-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-900/30">
-                {/* Top Icon */}
-                <div
-                  className={`absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br ${step.color} rounded-full flex items-center justify-center shadow-2xl`}
-                >
-                  <step.icon className="w-7 h-7 text-white" />
-                </div>
-
-                {/* Content */}
-                <div className="text-center">
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {step.text}
-                  </p>
-                </div>
+          <div className="flex flex-col gap-2 mt-4">
+            <h2 className="flex flex-col text-4xl sm:text-5xl font-extrabold text-white dark:text-[#FF6600]">
+              Building Digital Systems
+              <div
+                className="bg-gradient-to-r from-[#FF6600] via-[#4B0082] to-[#4B0082] 
+                       bg-clip-text text-transparent 
+                       dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 inline-block mt-2"
+              >
+                That Scale Businesses
               </div>
+            </h2>
+
+            <p className="text-lg text-gray-400 dark:text-slate-700 leading-relaxed">
+              Axia Digitech is a long-term digital partner helping brands grow
+              with clarity, speed, and purpose.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 py-2">
+          {journeySteps.map((step, i) => (
+            <div
+              key={i}
+              className="relative group rounded-2xl overflow-hidden 
+         bg-gradient-to-br from-slate-100/90 to-slate-200/90
+         dark:from-slate-800/10 dark:to-slate-900/10
+         backdrop-blur-sm
+         shadow-sm shadow-slate-400/20 dark:shadow-black/30
+         px-[30px] py-[40px]
+         transition-all duration-300"
+            >
+              {/* <div
+                className={`absolute -top-8 left-1/2 -translate-x-1/2
+              w-16 h-16 bg-gradient-to-br ${step.color}
+              rounded-full flex items-center justify-center`}
+              >
+                <step.icon className="w-7 h-7 text-white" />
+              </div> */}
+
+              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-700 text-center mb-3">
+                {step.title}
+              </h3>
+
+              <p className="text-slate-600 dark:text-slate-600 text-center">
+                {step.text}
+              </p>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Bottom Decorative Line */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-600/50 to-transparent"></div>
     </section>
   );
 }

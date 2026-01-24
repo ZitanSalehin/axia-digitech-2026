@@ -16,9 +16,9 @@ const Theme = () => {
     <div className="inline-flex items-center justify-center transition-colors">
       <button onClick={toggleTheme}>
         {theme === "light" ? (
-          <Sun size={20} className="text-black cursor-pointer" />
+          <Sun size={20} className="text-[#FF6600] cursor-pointer" />
         ) : (
-          <Moon size={20} className="text-purple-400 cursor-pointer" />
+          <Moon size={20} className="text-[#FF6600] cursor-pointer" />
         )}
       </button>
     </div>

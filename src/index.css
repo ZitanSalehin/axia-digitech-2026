@@ -35,6 +35,8 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
+/* Define a reusable class for your card */
+
 @keyframes marquee {
   0% {
     transform: translateX(0%);

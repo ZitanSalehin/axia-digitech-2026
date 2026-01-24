@@ -1,5 +1,15 @@
 import { ArrowRight, Play, Star, Target, TrendingUp, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
+import banner from "../assets/banner.jpg";
+
+import socialMediaImg from "../assets/business-setup.webp";
+import digitalMarketingImg from "../assets/digital.webp";
+import graphicsDesignImg from "../assets/graphics.webp";
+import webDevelopmentImg from "../assets/website-development.webp";
+
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function Hero() {
   const [activeMetric, setActiveMetric] = useState(0);
@@ -18,10 +28,64 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative pt-16 mt-28 pb-20 px-4 sm:px-6 lg:px-8">
+    <div className="relative pt-8 mt-28 pb-20 px-4 sm:px-6 lg:px-8">
+      {/* Image + Slider Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+        {/* Slider */}
+        <div className="w-full aspect-[16/9] lg:aspect-auto lg:h-[390px]">
+          <Swiper
+            modules={[Autoplay]}
+            autoplay={{ delay: 2500 }}
+            loop
+            className="w-full h-full rounded-2xl overflow-hidden"
+          >
+            <SwiperSlide>
+              <img
+                src={socialMediaImg}
+                alt="Social Media"
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <img
+                src={digitalMarketingImg}
+                alt="Digital Marketing"
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <img
+                src={graphicsDesignImg}
+                alt="Graphics Design"
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <img
+                src={webDevelopmentImg}
+                alt="Web Development"
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+          </Swiper>
+        </div>
+
+        {/* Main Image */}
+        <div className="lg:col-span-2 w-full aspect-[16/9] lg:aspect-auto lg:h-[390px]">
+          <img
+            src={banner}
+            alt="Banner"
+            className="w-full h-full object-cover object-[90%_center] rounded-2xl"
+          />
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
-        <div className="space-y-8 animate-fade-in">
+        <div className="space-y-8 animate-fade-in mt-10">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#FF6600]/20 to-[#4B0082]/20 dark:from-[#FF6600]/10 dark:to-[#FF6600]/5 border border-[#FF6600]/30 rounded-full backdrop-blur-sm">
             <Star className="w-4 h-4 text-[#FF6600]" fill="#FF6600" />
             <span className="text-sm text-gray-300 dark:text-[#FF6600] font-medium">

@@ -62,10 +62,10 @@ export default function ServicesSection() {
             return (
               <div
                 key={i}
-                className="relative group rounded-[16px] overflow-hidden
-  bg-gradient-to-br from-slate-100/90 to-slate-200/90 dark:from-slate-800/10 dark:to-slate-900/10
-  backdrop-blur-xl 
-  shadow-xl shadow-slate-400/20 dark:shadow-black/30
+                className="relative group rounded-2xl overflow-hidden
+  bg-linear-to-br from-slate-100/90 to-slate-200/90 dark:from-slate-800/10 dark:to-slate-900/10
+  backdrop-blur-lg 
+  shadow-sm shadow-slate-400/20 dark:shadow-black/30
   px-[30px] py-[40px]
   transition-all duration-300"
               >

@@ -33,7 +33,31 @@ const OurServices = () => {
     },
     {
       title: "Social Media Management",
-      description: "Manage your social media presence.",
+      description: "Manage your social media ad digital marketing fields.",
+      image: socialMediaImg,
+      link: "/services/social-media-management",
+    },
+    {
+      title: "Digital Marketing",
+      description: "We help your brand reach the right audience.",
+      image: digitalMarketingImg,
+      link: "/services/digital-marketing",
+    },
+    {
+      title: "Website Development",
+      description: "Building responsive and high-performing websites.",
+      image: webDevelopmentImg,
+      link: "/services/website-development",
+    },
+    {
+      title: "Graphics Design",
+      description: "Creative and impactful visual design solutions.",
+      image: graphicsDesignImg,
+      link: "/services/graphics-design",
+    },
+    {
+      title: "Social Media Management",
+      description: "Manage your social media ad digital marketing fields.",
       image: socialMediaImg,
       link: "/services/social-media-management",
     },
@@ -83,30 +107,32 @@ const OurServices = () => {
           }}
         >
           {services.map((service, index) => (
-            <SwiperSlide key={index} className="flex justify-center">
-              <div
-                className="group relative w-full max-w-sm rounded-3xl overflow-hidden transition-transform duration-300 bg-slate-800/80 dark:bg-white backdrop-blur-xl"
-                style={{ boxShadow: "0 0 20px rgba(0,0,0,0.15)" }}
-              >
+            <SwiperSlide
+              key={index}
+              className="flex justify-center shadow-lgs backdrop-blur-lg"
+            >
+              <div className="">
                 {/* Image */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-64 overflow-hidden rounded-tl-2xl rounded-tr-2xl">
                   <img
                     src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
                   {/* Top Ribbon */}
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-[#FF6600]/80 backdrop-blur-sm text-white text-xs rounded-full font-semibold tracking-wide">
+                  {/* <div className="absolute top-4 left-4 px-3 py-1 bg-[#FF6600]/80 backdrop-blur-sm text-white text-xs rounded-full font-semibold tracking-wide">
                     Featured
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Content */}
                 <div
-                  className="relative p-6 bg-gradient-to-t from-slate-900/80 to-slate-800/60 dark:from-slate-50 dark:to-white backdrop-blur-md transition-shadow duration-300 rounded-b-3xl"
-                  style={{ boxShadow: "0 0 15px rgba(0,0,0,0.1)" }}
+                  className="relative group rounded-bl-2xl rounded-br-2xl overflow-hidden 
+         bg-gradient-to-br from-slate-100/90 to-slate-200/90
+         dark:from-slate-800/10 dark:to-slate-900/10
+         px-[20px] py-[26px]
+         transition-all duration-300"
                 >
                   <h3 className="text-xl font-bold text-white dark:text-slate-900 mb-2">
                     {service.title}
