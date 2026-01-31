@@ -2,26 +2,24 @@ import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Theme = () => {
-  const [theme, setTheme] = useState("light"); // default to dark
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   return (
-    <div className="inline-flex items-center justify-center transition-colors">
-      <button onClick={toggleTheme}>
-        {theme === "light" ? (
-          <Sun size={20} className="text-[#FF6600] cursor-pointer" />
-        ) : (
-          <Moon size={20} className="text-[#FF6600] cursor-pointer" />
-        )}
-      </button>
-    </div>
+    <button onClick={toggleTheme}>
+      {theme === "dark" ? (
+        <Sun className="text-[#FF6600]" size={20} />
+      ) : (
+        <Moon className="text-[#FF6600]" size={20} />
+      )}
+    </button>
   );
 };
 

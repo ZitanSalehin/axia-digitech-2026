@@ -1,6 +1,6 @@
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import Theme from "../forms/Theme";
+import axiaLogo from "../assets/axianew.png";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,12 +21,12 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2 group cursor-pointer">
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-600 to-purple-800 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
-              <Zap className="w-6 h-6 text-white" />
+            <div className="w-30 flex items-center justify-center">
+              <img src={axiaLogo} alt="" srcset="" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-purple-400 bg-clip-text text-transparent">
+            {/* <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-purple-400 bg-clip-text text-transparent">
               AXIA DIGITECH
-            </span>
+            </span> */}
           </div>
 
           {/* Desktop Menu */}
@@ -42,7 +42,7 @@ export default function Navbar() {
               </a>
             ))}
 
-            <Theme />
+            {/* <Theme /> */}
             <button className="px-6 py-2.5 bg-gradient-to-r from-orange-600 to-purple-800 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-orange-600/50 transition-all duration-300 transform hover:scale-105">
               Get Started
             </button>

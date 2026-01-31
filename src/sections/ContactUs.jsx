@@ -107,34 +107,23 @@ export default function ModernContactForm() {
 
   return (
     <section id="contact" className="relative py-20 md:py-32">
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute w-56 h-56 bg-[#4B0082] rounded-full blur-2xl opacity-10 top-20 left-44 animate-pulse"></div>
-        <div
-          className="absolute w-96 h-96 bg-purple-800 rounded-full blur-3xl opacity-10 bottom-0 right-0 animate-pulse"
-          style={{ animationDelay: "2s" }}
-        ></div>
-        <div
-          className="absolute w-64 h-64 bg-orange-600 rounded-full blur-2xl opacity-5 top-1/2 left-1/2 animate-pulse"
-          style={{ animationDelay: "1s" }}
-        ></div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-600/20 to-purple-800/20 border border-orange-600/30 rounded-full backdrop-blur-sm mb-6">
-            <Sparkles className="w-4 h-4 text-orange-600" />
-            <span className="text-sm text-gray-300 font-medium">
+          <div
+            className="inline-flex items-center space-x-2 px-4 py-2
+            bg-gradient-to-r from-[#FF6600]/20 to-[#4B0082]/20
+            dark:from-[#FF6600]/10 dark:to-[#FF6600]/5
+            border border-[#FF6600]/30 rounded-full mb-5"
+          >
+            <Sparkles className="w-4 h-4 text-[#FF6600]" />
+            <span className="text-sm text-white dark:text-[#FF6600]">
               Let's Connect
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Get In{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-purple-600">
-              Touch
-            </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#FF6600] mb-6">
+            Get In <span className="text-slate-700">Touch</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Ready to transform your digital presence? Drop us a message and
@@ -149,7 +138,13 @@ export default function ModernContactForm() {
             {contactInfo.map((item, idx) => (
               <div
                 key={idx}
-                className="group relative p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-purple-800/30 hover:border-orange-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-900/20"
+                className="relative group rounded-2xl overflow-hidden 
+         bg-gradient-to-br from-slate-100/90 to-slate-200/90
+         dark:from-slate-800/10 dark:to-slate-900/10
+         backdrop-blur-sm
+         shadow-sm shadow-slate-400/20 dark:shadow-black/30
+         px-[30px] py-[40px]
+         transition-all duration-300"
               >
                 <div className="flex items-start space-x-4">
                   <div
@@ -168,7 +163,15 @@ export default function ModernContactForm() {
             ))}
 
             {/* Social Media Section */}
-            <div className="p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-2xl border border-purple-800/30">
+            <div
+              className="relative group rounded-2xl overflow-hidden 
+         bg-gradient-to-br from-slate-100/90 to-slate-200/90
+         dark:from-slate-800/10 dark:to-slate-900/10
+         backdrop-blur-sm
+         shadow-sm shadow-slate-400/20 dark:shadow-black/30
+         px-[30px] py-[40px]
+         transition-all duration-300"
+            >
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <Globe className="w-5 h-5 text-orange-500" />
                 Follow Us
@@ -192,24 +195,39 @@ export default function ModernContactForm() {
             </div>
 
             {/* Decorative Stats */}
-            <div className="hidden lg:block p-6 bg-gradient-to-br from-orange-600/10 to-purple-800/10 backdrop-blur-xl rounded-2xl border border-orange-600/30">
+            {/* <div
+              className="relative group rounded-2xl overflow-hidden 
+         bg-gradient-to-br from-slate-100/90 to-slate-200/90
+         dark:from-slate-800/10 dark:to-slate-900/10
+         backdrop-blur-sm
+         shadow-sm shadow-slate-400/20 dark:shadow-black/30
+         px-[30px] py-[40px]
+         transition-all duration-300"
+            >
               <div className="text-center">
                 <div className="text-4xl font-bold text-orange-500 mb-2">
                   24/7
                 </div>
                 <div className="text-gray-400 text-sm">Response Time</div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Contact Form - Right Side */}
           <div className="lg:col-span-3">
             <div className="relative">
               {/* Glowing Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600 to-purple-800 rounded-3xl blur-xl opacity-20"></div>
 
               {/* Form Container */}
-              <div className="relative p-8 md:p-10 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-3xl border border-purple-800/30">
+              <div
+                className="relative group rounded-2xl overflow-hidden 
+         bg-gradient-to-br from-slate-100/90 to-slate-200/90
+         dark:from-slate-800/10 dark:to-slate-900/10
+         backdrop-blur-sm
+         shadow-sm shadow-slate-400/20 dark:shadow-black/30
+         px-[30px] py-[40px]
+         transition-all duration-300"
+              >
                 <div className="space-y-6">
                   {/* Name Field */}
                   <div className="relative">
@@ -260,8 +278,8 @@ export default function ModernContactForm() {
                           errors.email
                             ? "border-red-500"
                             : focusedField === "email"
-                            ? "border-orange-600"
-                            : "border-slate-700"
+                              ? "border-orange-600"
+                              : "border-slate-700"
                         } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-600 transition-all duration-300`}
                         placeholder="john@example.com"
                       />
@@ -294,8 +312,8 @@ export default function ModernContactForm() {
                           errors.phone
                             ? "border-red-500"
                             : focusedField === "phone"
-                            ? "border-purple-600"
-                            : "border-slate-700"
+                              ? "border-purple-600"
+                              : "border-slate-700"
                         } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600 transition-all duration-300`}
                         placeholder="+8801XXXXXXXXX"
                       />

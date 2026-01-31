@@ -10,7 +10,6 @@ import {
 import { useEffect, useRef, useState } from "react";
 
 export default function ModernAboutSection() {
-  // Stats data
   const stats = [
     {
       value: 100,
@@ -42,7 +41,6 @@ export default function ModernAboutSection() {
     },
   ];
 
-  // Journey steps
   const journeySteps = [
     {
       icon: ShieldCheck,
@@ -119,11 +117,8 @@ export default function ModernAboutSection() {
     return () => observer.disconnect();
   }, [isVisible]);
 
-  // Auto-slide for journey cards
-
   return (
     <section id="about" className="relative overflow-hidden">
-      {/* Decorative Glow (same style as previous) */}
       <div className="dark:hidden absolute inset-0 pointer-events-none">
         <div className="absolute w-96 h-96 bg-orange-600 rounded-full blur-3xl opacity-10 top-1/4 left-0 animate-pulse" />
         <div
@@ -132,10 +127,8 @@ export default function ModernAboutSection() {
         />
       </div>
 
-      {/* Intro + Stats */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Stats */}
           <div ref={statsRef} className="grid grid-cols-2 gap-6">
             {stats.map((stat, i) => (
               <div
@@ -211,7 +204,7 @@ export default function ModernAboutSection() {
           >
             <Sparkles className="w-4 h-4 text-[#FF6600]" />
             <span className="text-sm text-white dark:text-[#FF6600]">
-              Our Process
+              Let's Connect
             </span>
           </div>
           <div className="flex flex-col gap-2 mt-4">

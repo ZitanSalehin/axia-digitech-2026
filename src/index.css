@@ -11,12 +11,7 @@ body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  background: linear-gradient(
-    to bottom right,
-    #0f172a,
-    #5b21b6,
-    #0f172a
-  ); /* slate-900 → purple-900 → slate-900 */
+  background: #4b0082;
   color: #ffffff;
   min-height: 100vh;
 }
