@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -24,24 +24,49 @@ export default function ClientsPortfolio() {
       color: "from-orange-500 to-purple-700",
     },
     {
-      name: "Lifewaves Limited",
+      name: "Tripology ltd.",
       logo: tripology,
       color: "from-purple-600 to-orange-600",
     },
     {
-      name: "ZERON GROUP",
+      name: "Zeron Group",
       logo: zeron,
       color: "from-orange-600 to-orange-500",
     },
     {
-      name: "ZERON GROUP",
+      name: "Lifewave Limited",
+      logo: lifewave,
+      color: "from-orange-600 to-orange-500",
+    },
+    {
+      name: "Dhumketu Tech Limited",
+      logo: dtl,
+      color: "from-purple-700 to-purple-600",
+    },
+    {
+      name: "Netsoft Solution Limited",
+      logo: netsoft,
+      color: "from-orange-500 to-purple-700",
+    },
+    {
+      name: "Tripology ltd.",
+      logo: tripology,
+      color: "from-purple-600 to-orange-600",
+    },
+    {
+      name: "Zeron Group",
+      logo: zeron,
+      color: "from-orange-600 to-orange-500",
+    },
+    {
+      name: "Lifewave Limited",
       logo: lifewave,
       color: "from-orange-600 to-orange-500",
     },
   ];
 
   return (
-    <section className="relative overflow-hidden py-28">
+    <section id="clients" className="relative overflow-hidden py-28">
       {/* Glow */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
@@ -78,13 +103,8 @@ export default function ClientsPortfolio() {
           </button>
 
           <Swiper
-            modules={[Autoplay, Navigation, Pagination]}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            navigation={{
-              prevEl: ".clients-prev",
-              nextEl: ".clients-next",
-            }}
-            pagination={{ clickable: true }}
+            modules={[Autoplay]}
+            autoplay={{ delay: 2000, disableOnInteraction: false }}
             spaceBetween={28}
             breakpoints={{
               0: { slidesPerView: 1 },

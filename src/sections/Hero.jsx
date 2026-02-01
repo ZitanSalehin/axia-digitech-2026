@@ -110,7 +110,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="group px-8 py-4 bg-gradient-to-r from-[#FF6600] to-[#4B0082] text-white rounded-full font-bold hover:shadow-2xl hover:shadow-[#FF6600]/40 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+            <button className="group px-8 py-4 bg-[#FF6600] text-white rounded-full font-bold hover:shadow-2xl hover:shadow-[#FF6600]/40 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
               <span>Start Your Campaign</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -160,20 +160,17 @@ export default function Hero() {
                 icon: <TrendingUp className="w-6 h-6 text-white" />,
                 title: "Growth Marketing",
                 desc: "Scale your business with proven strategies.",
-                gradient: "from-[#FF6600] to-[#4B0082]",
                 offset: "ml-12",
               },
               {
                 icon: <Target className="w-6 h-6 text-white" />,
                 title: "Targeted Campaigns",
                 desc: "Reach the right audience with precision.",
-                gradient: "from-[#4B0082] to-[#FF6600]",
               },
               {
                 icon: <Zap className="w-6 h-6 text-white" />,
                 title: "Real-Time Analytics",
                 desc: "Track and optimize in real time.",
-                gradient: "from-[#FF6600] to-[#4B0082]",
                 offset: "ml-12",
               },
             ].map((card, idx) => (
@@ -184,11 +181,11 @@ export default function Hero() {
                 } p-6 bg-gradient-to-br from-slate-800/80 to-slate-900/80 dark:from-slate-50 dark:to-white backdrop-blur-xl rounded-2xl border border-[#4B0082]/30 hover:border-[#FF6600]/50 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl`}
               >
                 <div className="flex items-start space-x-4">
-                  <div
-                    className={`w-12 h-12 bg-gradient-to-br ${card.gradient} rounded-xl flex items-center justify-center`}
-                  >
+                  {/* ICON BG ONLY CHANGED */}
+                  <div className="w-12 h-12 bg-[#FF6600] rounded-xl flex items-center justify-center">
                     {card.icon}
                   </div>
+
                   <div>
                     <h3 className="text-lg font-bold text-white dark:text-slate-900 mb-2">
                       {card.title}

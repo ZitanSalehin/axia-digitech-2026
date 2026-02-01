@@ -22,7 +22,7 @@ export default function ServicesSection() {
     <section className="relative py-[115px] pb-[120px] overflow-hidden">
       {/* Background Glow */}
       <div className="dark:hidden absolute inset-0 overflow-hidden pointer-events-none opacity-40">
-        <div className="absolute w-96 h-96 bg-orange-600 rounded-full blur-3xl opacity-[2%] top-50 left-1/4 animate-pulse"></div>
+        <div className="absolute w-96 h-96 bg-[#FF6600] rounded-full blur-3xl opacity-[2%] top-50 left-1/4 animate-pulse"></div>
         <div
           className="absolute w-96 h-96 bg-purple-800 rounded-full blur-3xl opacity-[2%] top-1/2 right-1/4 animate-pulse"
           style={{ animationDelay: "1.5s" }}

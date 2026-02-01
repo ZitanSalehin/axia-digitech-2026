@@ -153,10 +153,10 @@ export default function ModernContactForm() {
                     <item.icon className="w-7 h-7 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-white mb-1">
+                    <h3 className="text-lg font-bold text-slate-700 mb-1">
                       {item.label}
                     </h3>
-                    <p className="text-gray-400">{item.value}</p>
+                    <p className="text-slate-600">{item.value}</p>
                   </div>
                 </div>
               </div>
@@ -172,8 +172,8 @@ export default function ModernContactForm() {
          px-[30px] py-[40px]
          transition-all duration-300"
             >
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <Globe className="w-5 h-5 text-orange-500" />
+              <h3 className="text-xl font-bold text-slate-700 mb-4 flex items-center gap-2">
+                <Globe className="w-5 h-5 text-slate-600" />
                 Follow Us
               </h3>
               <div className="flex space-x-4">
@@ -229,196 +229,168 @@ export default function ModernContactForm() {
          transition-all duration-300"
               >
                 <div className="space-y-6">
-                  {/* Name Field */}
-                  <div className="relative">
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-semibold text-gray-300 mb-2"
-                    >
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      onFocus={() => setFocusedField("name")}
-                      onBlur={() => setFocusedField("")}
-                      required
-                      className={`w-full px-4 py-3 bg-slate-900/50 border ${
-                        focusedField === "name"
-                          ? "border-orange-600"
-                          : "border-slate-700"
-                      } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-600 transition-all duration-300`}
-                      placeholder="John Doe"
-                    />
-                  </div>
+                  {/* Shared input style */}
+                  {(() => {
+                    const baseInput =
+                      "w-full px-4 py-3 bg-gray-400/60 rounded-xl text-[#FF6600] placeholder-white focus:outline-none transition-all duration-300";
 
-                  {/* Email & Phone Grid */}
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* Email Field */}
-                    <div className="relative">
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-semibold text-gray-300 mb-2"
-                      >
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        onFocus={() => setFocusedField("email")}
-                        onBlur={() => setFocusedField("")}
-                        required
-                        className={`w-full px-4 py-3 bg-slate-900/50 border ${
-                          errors.email
-                            ? "border-red-500"
-                            : focusedField === "email"
-                              ? "border-orange-600"
-                              : "border-slate-700"
-                        } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-600 transition-all duration-300`}
-                        placeholder="john@example.com"
-                      />
-                      {errors.email && (
-                        <p className="text-sm text-red-400 mt-1 flex items-center gap-1">
-                          <AlertCircle className="w-4 h-4" />
-                          {errors.email}
-                        </p>
-                      )}
-                    </div>
+                    return (
+                      <>
+                        {/* Full Name */}
+                        <div className="relative">
+                          <label className="block text-sm font-semibold text-slate-700 mb-2">
+                            Full Name *
+                          </label>
+                          <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            onFocus={() => setFocusedField("name")}
+                            onBlur={() => setFocusedField("")}
+                            required
+                            className={`${baseInput} ${
+                              focusedField === "name"
+                                ? "border-orange-600"
+                                : "border-slate-700"
+                            }`}
+                            placeholder="John Doe"
+                          />
+                        </div>
 
-                    {/* Phone Field */}
-                    <div className="relative">
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-semibold text-gray-300 mb-2"
-                      >
-                        Phone Number *
-                      </label>
-                      <input
-                        type="text"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        onFocus={() => setFocusedField("phone")}
-                        onBlur={() => setFocusedField("")}
-                        required
-                        className={`w-full px-4 py-3 bg-slate-900/50 border ${
-                          errors.phone
-                            ? "border-red-500"
-                            : focusedField === "phone"
-                              ? "border-purple-600"
-                              : "border-slate-700"
-                        } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600 transition-all duration-300`}
-                        placeholder="+8801XXXXXXXXX"
-                      />
-                      {errors.phone && (
-                        <p className="text-sm text-red-400 mt-1 flex items-center gap-1">
-                          <AlertCircle className="w-4 h-4" />
-                          {errors.phone}
-                        </p>
-                      )}
-                    </div>
-                  </div>
+                        {/* Email & Phone */}
+                        <div className="grid md:grid-cols-2 gap-6">
+                          {/* Email */}
+                          <div className="relative">
+                            <label className="block text-sm font-semibold text-slate-700 mb-2">
+                              Email Address *
+                            </label>
+                            <input
+                              type="email"
+                              name="email"
+                              value={formData.email}
+                              onChange={handleChange}
+                              onFocus={() => setFocusedField("email")}
+                              onBlur={() => setFocusedField("")}
+                              required
+                              className={`${baseInput} ${
+                                focusedField === "email"
+                                  ? "border-orange-600"
+                                  : "border-slate-700"
+                              }`}
+                              placeholder="john@example.com"
+                            />
+                          </div>
 
-                  {/* Subject Field */}
-                  <div className="relative">
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-semibold text-gray-300 mb-2"
-                    >
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      onFocus={() => setFocusedField("subject")}
-                      onBlur={() => setFocusedField("")}
-                      required
-                      className={`w-full px-4 py-3 bg-slate-900/50 border ${
-                        focusedField === "subject"
-                          ? "border-purple-600"
-                          : "border-slate-700"
-                      } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-600 transition-all duration-300`}
-                      placeholder="How can we help you?"
-                    />
-                  </div>
+                          {/* Phone */}
+                          <div className="relative">
+                            <label className="block text-sm font-semibold text-slate-700 mb-2">
+                              Phone Number *
+                            </label>
+                            <input
+                              type="text"
+                              name="phone"
+                              value={formData.phone}
+                              onChange={handleChange}
+                              onFocus={() => setFocusedField("phone")}
+                              onBlur={() => setFocusedField("")}
+                              required
+                              className={`${baseInput} ${
+                                focusedField === "phone"
+                                  ? "border-orange-600"
+                                  : "border-slate-700"
+                              }`}
+                              placeholder="+8801XXXXXXXXX"
+                            />
+                          </div>
+                        </div>
 
-                  {/* Message Field */}
-                  <div className="relative">
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-semibold text-gray-300 mb-2"
-                    >
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      onFocus={() => setFocusedField("message")}
-                      onBlur={() => setFocusedField("")}
-                      required
-                      className={`w-full px-4 py-3 bg-slate-900/50 border ${
-                        focusedField === "message"
-                          ? "border-orange-600"
-                          : "border-slate-700"
-                      } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-600 transition-all duration-300 resize-none`}
-                      placeholder="Tell us about your project..."
-                    />
-                  </div>
+                        {/* Subject */}
+                        <div className="relative">
+                          <label className="block text-sm font-semibold text-slate-700 mb-2">
+                            Subject *
+                          </label>
+                          <input
+                            type="text"
+                            name="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            onFocus={() => setFocusedField("subject")}
+                            onBlur={() => setFocusedField("")}
+                            required
+                            className={`${baseInput} ${
+                              focusedField === "subject"
+                                ? "border-orange-600"
+                                : "border-slate-700"
+                            }`}
+                            placeholder="How can we help you?"
+                          />
+                        </div>
 
-                  {/* Submit Button */}
-                  <div>
-                    <button
-                      onClick={handleSubmit}
-                      disabled={loading}
-                      className={`group w-full px-8 py-4 bg-gradient-to-r from-orange-600 to-purple-800 text-white rounded-xl font-bold hover:shadow-2xl hover:shadow-orange-600/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 ${
-                        loading ? "opacity-70 cursor-not-allowed" : ""
-                      }`}
-                    >
-                      {loading ? (
-                        <>
-                          <svg
-                            className="animate-spin h-5 w-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              className="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              strokeWidth="4"
-                            ></circle>
-                            <path
-                              className="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8z"
-                            ></path>
-                          </svg>
-                          <span>Sending...</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>Send Message</span>
-                          <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </>
-                      )}
-                    </button>
-                  </div>
+                        {/* Message */}
+                        <div className="relative">
+                          <label className="block text-sm font-semibold text-slate-700 mb-2">
+                            Message *
+                          </label>
+                          <textarea
+                            rows={5}
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            onFocus={() => setFocusedField("message")}
+                            onBlur={() => setFocusedField("")}
+                            required
+                            className={`${baseInput} resize-none ${
+                              focusedField === "message"
+                                ? "border-orange-600"
+                                : "border-slate-700"
+                            }`}
+                            placeholder="Tell us about your project..."
+                          />
+                        </div>
+
+                        {/* Submit Button */}
+                        <button
+                          onClick={handleSubmit}
+                          disabled={loading}
+                          className={`group w-full px-8 py-4 bg-gradient-to-r from-orange-600 to-purple-800 text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-600/50 ${
+                            loading ? "opacity-70 cursor-not-allowed" : ""
+                          }`}
+                        >
+                          {loading ? (
+                            <>
+                              <svg
+                                className="animate-spin h-5 w-5 text-white"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <circle
+                                  className="opacity-25"
+                                  cx="12"
+                                  cy="12"
+                                  r="10"
+                                  stroke="currentColor"
+                                  strokeWidth="4"
+                                />
+                                <path
+                                  className="opacity-75"
+                                  fill="currentColor"
+                                  d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8z"
+                                />
+                              </svg>
+                              <span>Sending...</span>
+                            </>
+                          ) : (
+                            <>
+                              <span>Send Message</span>
+                              <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </>
+                          )}
+                        </button>
+                      </>
+                    );
+                  })()}
                 </div>
 
                 {/* Status Message */}

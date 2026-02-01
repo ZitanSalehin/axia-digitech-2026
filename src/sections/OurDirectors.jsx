@@ -67,7 +67,7 @@ export default function OurDirectors() {
     <section className="relative py-32 overflow-hidden">
       {/* Glow Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-80 h-80 bg-orange-600/20 blur-3xl rounded-full top-20 left-20 animate-pulse" />
+        <div className="absolute w-80 h-80 bg-[#FF6600]/20 blur-3xl rounded-full top-20 left-20 animate-pulse" />
         <div className="absolute w-96 h-96 bg-purple-800/20 blur-3xl rounded-full bottom-0 right-0 animate-pulse" />
       </div>
 

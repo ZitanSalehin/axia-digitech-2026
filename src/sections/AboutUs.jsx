@@ -120,7 +120,7 @@ export default function ModernAboutSection() {
   return (
     <section id="about" className="relative overflow-hidden">
       <div className="dark:hidden absolute inset-0 pointer-events-none">
-        <div className="absolute w-96 h-96 bg-orange-600 rounded-full blur-3xl opacity-10 top-1/4 left-0 animate-pulse" />
+        <div className="absolute w-96 h-96 bg-[#FF6600] rounded-full blur-3xl opacity-10 top-1/4 left-0 animate-pulse" />
         <div
           className="absolute w-96 h-96 bg-purple-800 rounded-full blur-3xl opacity-10 bottom-1/4 right-0 animate-pulse"
           style={{ animationDelay: "1.5s" }}
