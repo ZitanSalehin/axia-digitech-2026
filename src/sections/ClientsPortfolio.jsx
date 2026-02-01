@@ -66,7 +66,7 @@ export default function ClientsPortfolio() {
   ];
 
   return (
-    <section id="clients" className="relative overflow-hidden py-28">
+    <section id="clients" className="relative overflow-hidden py-20">
       {/* Glow */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">

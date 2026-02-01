@@ -48,7 +48,7 @@ export default function GrowBusinessSection() {
   ];
 
   return (
-    <section id="business-plan" className="relative overflow-hidden py-32">
+    <section id="business-plan" className="relative overflow-hidden py-26">
       {/* Glow / Decorative Background */}
       <div className="dark:hidden absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute w-72 h-72 bg-[#FF6600] rounded-full blur-3xl opacity-10 top-1/4 left-1/4 animate-pulse"></div>

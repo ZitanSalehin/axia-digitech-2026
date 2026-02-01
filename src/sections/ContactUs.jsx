@@ -89,7 +89,7 @@ export default function ModernContactForm() {
       icon: Mail,
       label: "Email",
       value: "info@axiadigitech.com",
-      color: "from-orange-600 to-orange-500",
+      color: "#FF6600",
     },
     {
       icon: Phone,
@@ -106,7 +106,7 @@ export default function ModernContactForm() {
   ];
 
   return (
-    <section id="contact" className="relative py-20 md:py-32">
+    <section id="contact" className="relative pb-20 md:pb-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -148,7 +148,7 @@ export default function ModernContactForm() {
               >
                 <div className="flex items-start space-x-4">
                   <div
-                    className={`w-14 h-14 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-14 h-14 bg-[#FF6600] rounded-xl flex items-center justify-center flex-shrink-0 `}
                   >
                     <item.icon className="w-7 h-7 text-white" />
                   </div>
@@ -178,16 +178,15 @@ export default function ModernContactForm() {
               </h3>
               <div className="flex space-x-4">
                 <a
-                  href="https://www.facebook.com/share/15x9MorRiC/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-blue-600/50 transition-all duration-300"
+                  className="group w-12 h-12 bg-[#FF6600] rounded-xl flex items-center justify-center"
                 >
                   <Facebook className="w-6 h-6 text-white" />
                 </a>
                 <button
                   onClick={() => alert("WhatsApp integration")}
-                  className="group w-12 h-12 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-green-600/50 transition-all duration-300"
+                  className="group w-12 h-12 bg-[#FF6600] rounded-xl flex items-center justify-center "
                 >
                   <MessageCircle className="w-6 h-6 text-white" />
                 </button>
@@ -353,7 +352,7 @@ export default function ModernContactForm() {
                         <button
                           onClick={handleSubmit}
                           disabled={loading}
-                          className={`group w-full px-8 py-4 bg-gradient-to-r from-orange-600 to-purple-800 text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-600/50 ${
+                          className={`group w-full px-8 py-4 bg-[#FF6600] text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition-all ${
                             loading ? "opacity-70 cursor-not-allowed" : ""
                           }`}
                         >
@@ -384,7 +383,7 @@ export default function ModernContactForm() {
                           ) : (
                             <>
                               <span>Send Message</span>
-                              <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                              <Send className="w-5 h-5" />
                             </>
                           )}
                         </button>

@@ -12,14 +12,14 @@ import { useEffect, useRef, useState } from "react";
 export default function ModernAboutSection() {
   const stats = [
     {
-      value: 100,
+      value: 12,
       suffix: "+",
       label: "Projects Delivered",
       icon: Target,
       color: "from-orange-600 to-orange-500",
     },
     {
-      value: 7,
+      value: 2,
       suffix: "+",
       label: "Years Experience",
       icon: Award,
@@ -33,9 +33,9 @@ export default function ModernAboutSection() {
       color: "from-orange-500 to-purple-700",
     },
     {
-      value: 50,
+      value: 21,
       suffix: "+",
-      label: "Global Clients",
+      label: "Total Clients",
       icon: Users,
       color: "from-purple-600 to-orange-600",
     },

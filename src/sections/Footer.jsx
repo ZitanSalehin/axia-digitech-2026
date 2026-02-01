@@ -1,22 +1,22 @@
-import { Zap } from "lucide-react";
+import logo from "../assets/axianew2.png";
 
 export default function Footer() {
   return (
-    <footer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-3xl mt-10 text-orange-400">
+    <footer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-3xl mt-10 text-slate-700">
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-11 h-11 bg-gradient-to-br from-orange-600 to-purple-800 rounded-xl flex items-center justify-center">
-                <Zap className="w-6 h-6 text-white" />
+              <div className="w-11 h-10 bg-[#FF6600] rounded-lg flex items-center justify-center">
+                <img src={logo} alt="" srcset="" className="w-8" />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-purple-400 bg-clip-text text-transparent">
+              <h2 className="text-2xl font-bold text-slate-700 uppercase">
                 Axia Digitech
-              </span>
+              </h2>
             </div>
-            <p className="text-gray-400 leading-relaxed max-w-md">
+            <p className="text-slate-600 leading-relaxed max-w-md">
               Your partner for digital growth and success in the modern business
               landscape.
             </p>
@@ -74,7 +74,7 @@ export default function Footer() {
                   >
                     {item}
                   </li>
-                )
+                ),
               )}
             </ul>
           </div>
