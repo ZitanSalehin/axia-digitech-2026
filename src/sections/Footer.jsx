@@ -2,7 +2,7 @@ import logo from "../assets/axianew2.png";
 
 export default function Footer() {
   return (
-    <footer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-3xl mt-10 text-slate-700">
+    <footer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-3xl mt-10 text-slate-700 mb-5">
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">

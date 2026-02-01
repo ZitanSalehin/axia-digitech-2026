@@ -6,73 +6,76 @@ const ServiceProvidedBrands = () => {
     "Social Media Management",
     "SEO Optimization",
     "Brand Strategy",
-    "Digital Marketing",
-    "Website Development",
-    "Graphics Design",
-    "Social Media Management",
-    "SEO Optimization",
-    "Brand Strategy",
-    "Digital Marketing",
-    "Website Development",
-    "Graphics Design",
-    "Social Media Management",
-    "SEO Optimization",
-    "Brand Strategy",
-    "Digital Marketing",
-    "Website Development",
-    "Graphics Design",
-    "Social Media Management",
-    "SEO Optimization",
-    "Brand Strategy",
-    "Digital Marketing",
-    "Website Development",
-    "Graphics Design",
-    "Social Media Management",
-    "SEO Optimization",
-    "Brand Strategy",
   ];
 
   return (
-    <section className="py-2 bg-slate-900 text-white overflow-hidden">
-      <div className="flex animate-scroll whitespace-nowrap">
-        {/* FIRST SET */}
-        <div className="flex flex-shrink-0">
-          {logoTexts.map((text, index) => (
-            <div key={index} className="inline-flex items-center px-8 mx-4">
-              <span className="text-xl font-medium">{text}</span>
-            </div>
-          ))}
+    <div className="bg-slate-800 text-white">
+      <div class="logos">
+        <div class="logo_items">
+          <span class="brand-text">Digital Marketing</span>
+          <span class="brand-text">Website Development</span>
+          <span class="brand-text">Graphics Design</span>
+          <span class="brand-text">Social Media Management</span>
+          <span class="brand-text">SEO Optimization</span>
+          <span class="brand-text">Brand Strategy</span>
+
+          <span class="brand-text">Digital Marketing</span>
+          <span class="brand-text">Website Development</span>
+          <span class="brand-text">Graphics Design</span>
+          <span class="brand-text">Social Media Management</span>
+          <span class="brand-text">SEO Optimization</span>
+          <span class="brand-text">Brand Strategy</span>
+
+          <span class="brand-text">Digital Marketing</span>
+          <span class="brand-text">Website Development</span>
+          <span class="brand-text">Graphics Design</span>
+          <span class="brand-text">Social Media Management</span>
+          <span class="brand-text">SEO Optimization</span>
+          <span class="brand-text">Brand Strategy</span>
+
+          <span class="brand-text">Digital Marketing</span>
+          <span class="brand-text">Website Development</span>
+          <span class="brand-text">Graphics Design</span>
+          <span class="brand-text">Social Media Management</span>
+          <span class="brand-text">SEO Optimization</span>
+          <span class="brand-text">Brand Strategy</span>
+
+          <span class="brand-text">Digital Marketing</span>
         </div>
 
-        {/* SECOND SET (CLONE) */}
-        <div className="flex flex-shrink-0">
-          {logoTexts.map((text, index) => (
-            <div
-              key={`clone-${index}`}
-              className="inline-flex items-center px-8 mx-4"
-            >
-              <span className="text-lg font-medium">{text}</span>
-            </div>
-          ))}
+        <div class="logo_items">
+          <span class="brand-text">Digital Marketing</span>
+          <span class="brand-text">Website Development</span>
+          <span class="brand-text">Graphics Design</span>
+          <span class="brand-text">Social Media Management</span>
+          <span class="brand-text">SEO Optimization</span>
+          <span class="brand-text">Brand Strategy</span>
+
+          <span class="brand-text">Digital Marketing</span>
+          <span class="brand-text">Website Development</span>
+          <span class="brand-text">Graphics Design</span>
+          <span class="brand-text">Social Media Management</span>
+          <span class="brand-text">SEO Optimization</span>
+          <span class="brand-text">Brand Strategy</span>
+
+          <span class="brand-text">Digital Marketing</span>
+          <span class="brand-text">Website Development</span>
+          <span class="brand-text">Graphics Design</span>
+          <span class="brand-text">Social Media Management</span>
+          <span class="brand-text">SEO Optimization</span>
+          <span class="brand-text">Brand Strategy</span>
+
+          <span class="brand-text">Digital Marketing</span>
+          <span class="brand-text">Website Development</span>
+          <span class="brand-text">Graphics Design</span>
+          <span class="brand-text">Social Media Management</span>
+          <span class="brand-text">SEO Optimization</span>
+          <span class="brand-text">Brand Strategy</span>
+
+          <span class="brand-text">Digital Marketing</span>
         </div>
       </div>
-
-      <style>{`
-				@keyframes scroll {
-					0% {
-						transform: translateX(0);
-					}
-					100% {
-						transform: translateX(-100%);
-					}
-				}
-
-				.animate-scroll {
-					animation: scroll 12s linear infinite;
-					will-change: transform;
-				}
-			`}</style>
-    </section>
+    </div>
   );
 };
 

@@ -26,7 +26,7 @@ export default function Navbar() {
       style={{ marginTop: scrolled ? "0rem" : "3.6rem" }}
     >
       <div
-        className={`mx-auto px-4 sm:px-6 lg:px-8  transition-all duration-500
+        className={`mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500
           ${
             scrolled
               ? "bg-white/10 backdrop-blur-2xl border-b-2 border-orange-400 shadow-lg shadow-black/10"
@@ -35,7 +35,7 @@ export default function Navbar() {
       >
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
-          <div className="flex items-center cursor-pointer">
+          <div className="flex items-center cursor-pointer lg:px-0">
             <img src={axiaLogo} alt="Axia Digitech" className="h-6 w-auto" />
           </div>
 
@@ -64,14 +64,14 @@ export default function Navbar() {
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="md:hidden bg-slate-900/90 backdrop-blur-xl border-t border-white/10 rounded-b-3xl">
-            <div className="px-4 py-4 space-y-3">
+          <div className="md:hidden border-t border-white/10 rounded-b-3xl">
+            <div className="px-0 py-4 space-y-2">
               {navItems.map((item) => (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={() => setIsMenuOpen(false)}
-                  className="block px-4 py-3 text-gray-300 hover:text-orange-600 hover:bg-white/5 rounded-lg transition-all duration-300"
+                  className="block px-4 py-3 text-slate-600 hover:text-orange-600 hover:bg-white/5 rounded-lg transition-all duration-300"
                 >
                   {item.label}
                 </a>

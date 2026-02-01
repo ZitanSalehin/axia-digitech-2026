@@ -1,4 +1,4 @@
-import { ArrowRight, Play, Star, Target, TrendingUp, Zap } from "lucide-react";
+import { ArrowRight, Star, Target, TrendingUp, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 import banner from "../assets/banner.jpg";
 
@@ -37,7 +37,7 @@ export default function Hero() {
             modules={[Autoplay]}
             autoplay={{ delay: 2500 }}
             loop
-            className="w-full h-full rounded-2xl overflow-hidden"
+            className="w-full lg:h-full rounded-2xl overflow-hidden"
           >
             <SwiperSlide>
               <img
@@ -115,10 +115,10 @@ export default function Hero() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
 
-            <button className="group px-8 py-4 bg-white/10 dark:bg-slate-100 backdrop-blur-sm text-white dark:text-slate-900 rounded-full font-bold border-2 border-white/20 dark:border-slate-300 hover:bg-white/20 dark:hover:bg-slate-200 transition-all duration-300 flex items-center justify-center space-x-2">
+            {/* <button className="group px-8 py-4 bg-white/10 dark:bg-slate-100 backdrop-blur-sm text-white dark:text-slate-900 rounded-full font-bold border-2 border-white/20 dark:border-slate-300 hover:bg-white/20 dark:hover:bg-slate-200 transition-all duration-300 flex items-center justify-center space-x-2">
               <Play className="w-5 h-5 fill-white dark:fill-slate-900" />
               <span>Watch Demo</span>
-            </button>
+            </button> */}
           </div>
 
           {/* Glow Effects */}

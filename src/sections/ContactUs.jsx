@@ -148,7 +148,7 @@ export default function ModernContactForm() {
               >
                 <div className="flex items-start space-x-4">
                   <div
-                    className={`w-14 h-14 bg-[#FF6600] rounded-xl flex items-center justify-center flex-shrink-0 `}
+                    className={`w-14 h-14 bg-[#FF6600]/40 rounded-xl flex items-center justify-center flex-shrink-0 `}
                   >
                     <item.icon className="w-7 h-7 text-white" />
                   </div>
@@ -180,13 +180,13 @@ export default function ModernContactForm() {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group w-12 h-12 bg-[#FF6600] rounded-xl flex items-center justify-center"
+                  className="group w-12 h-12 bg-[#FF6600]/40 rounded-xl flex items-center justify-center"
                 >
                   <Facebook className="w-6 h-6 text-white" />
                 </a>
                 <button
                   onClick={() => alert("WhatsApp integration")}
-                  className="group w-12 h-12 bg-[#FF6600] rounded-xl flex items-center justify-center "
+                  className="group w-12 h-12 bg-[#FF6600]/40 rounded-xl flex items-center justify-center "
                 >
                   <MessageCircle className="w-6 h-6 text-white" />
                 </button>
@@ -352,7 +352,7 @@ export default function ModernContactForm() {
                         <button
                           onClick={handleSubmit}
                           disabled={loading}
-                          className={`group w-full px-8 py-4 bg-[#FF6600] text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition-all ${
+                          className={`group w-full px-8 py-4 bg-[#FF6600]/40 text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition-all ${
                             loading ? "opacity-70 cursor-not-allowed" : ""
                           }`}
                         >

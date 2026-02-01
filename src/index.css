@@ -140,3 +140,77 @@ body {
     visibility: visible;
   }
 }
+
+/* brand scrolling */
+@keyframes slides {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slides {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 8px 0px;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Gradient fade edges */
+.logos::before,
+.logos::after {
+  position: absolute;
+  top: 0;
+  content: "";
+  width: 180px;
+  height: 100%;
+  z-index: 2;
+}
+
+.logos::before {
+  left: 0;
+  /* background: linear-gradient(to left, transparent, #0f172a); */
+}
+
+.logos::after {
+  right: 0;
+  /* background: linear-gradient(to right, transparent, #0f172a); */
+}
+
+.logo_items {
+  display: inline-block;
+  animation: slides 50s linear infinite;
+}
+
+.logos:hover .logo_items {
+  animation-play-state: paused;
+}
+
+/* Branding text style */
+.brand-text {
+  display: inline-block;
+  margin: 0 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  opacity: 0.9;
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease;
+}
+
+.brand-text:hover {
+  opacity: 1;
+  color: #ff6600;
+}
