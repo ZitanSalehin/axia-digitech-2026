@@ -1,4 +1,4 @@
-import logo from "../assets/axianew2.png";
+import axiaLogo from "../assets/axianew.png";
 
 export default function Footer() {
   return (
@@ -9,12 +9,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-11 h-10 bg-[#FF6600] rounded-lg flex items-center justify-center">
-                <img src={logo} alt="" srcset="" className="w-8" />
-              </div>
-              <h2 className="text-2xl font-bold text-slate-700 uppercase">
+              <img src={axiaLogo} alt="" srcset="" className="w-28" />
+
+              {/* <h2 className="text-2xl font-bold text-slate-700 uppercase">
                 Axia Digitech
-              </h2>
+              </h2> */}
             </div>
             <p className="text-slate-600 leading-relaxed max-w-md">
               Your partner for digital growth and success in the modern business
@@ -85,10 +84,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 gap-4">
-          <p>© 2026 Axia Digitech. All rights reserved.</p>
-          <p className="text-xs">
-            Designed with precision & performance in mind
-          </p>
+          <p>© 2025 Axia Digitech. All rights reserved.</p>
         </div>
       </div>
     </footer>

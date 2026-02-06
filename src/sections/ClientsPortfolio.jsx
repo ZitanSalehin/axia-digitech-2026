@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import bcl from "../assets/bcl.png";
 import dtl from "../assets/dtl.png";
 import lifewave from "../assets/lifewave.png";
 import netsoft from "../assets/netsoft.png";
@@ -39,6 +40,11 @@ export default function ClientsPortfolio() {
       color: "from-orange-600 to-orange-500",
     },
     {
+      name: "BCL Internet",
+      logo: bcl,
+      color: "from-orange-600 to-orange-500",
+    },
+    {
       name: "Dhumketu Tech Limited",
       logo: dtl,
       color: "from-purple-700 to-purple-600",
@@ -63,32 +69,39 @@ export default function ClientsPortfolio() {
       logo: lifewave,
       color: "from-orange-600 to-orange-500",
     },
+    {
+      name: "BCL Internet",
+      logo: bcl,
+      color: "from-orange-600 to-orange-500",
+    },
   ];
 
   return (
-    <section id="clients" className="relative overflow-hidden py-20">
+    <section id="clients" className="relative overflow-hidden pt-10">
       {/* Glow */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center">
           <div
-            className="inline-flex items-center gap-2 px-4 py-2
+            className="inline-flex items-center space-x-2 px-4 py-2
             bg-gradient-to-r from-[#FF6600]/20 to-[#4B0082]/20
-            border border-[#FF6600]/30 rounded-full mb-6"
+            dark:from-[#FF6600]/10 dark:to-[#FF6600]/5
+            border border-[#FF6600]/30 rounded-full mb-4"
           >
-            <Sparkles className="w-4 h-4 text-[#FF6600]" />
-            <span className="text-sm text-white">Our Clients</span>
+            <Sparkles className="w-4 h-4 text-[#FF6600]" fill="#FF6600" />
+            <span className="text-md text-white dark:text-[#FF6600] font-medium">
+              Next-Gen Digital Agency
+            </span>
           </div>
-
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#FF6600]">
-            Service Taken From
-            <span className="block text-slate-700 mt-2">Axia Digitech</span>
-          </h2>
-
-          <p className="mt-6 text-lg text-gray-400 max-w-3xl mx-auto">
-            Trusted by businesses who believe in quality and performance.
-          </p>
+          <div className="flex justify-center gap-2">
+            <h2 className="text-2xl sm:text-5xl font-extrabold text-[#FF6600]">
+              Service Taken From
+            </h2>
+            <h2 className="text-2xl sm:text-5xl font-extrabold text-slate-700">
+              Axia Digitech
+            </h2>
+          </div>
         </div>
 
         {/* Slider */}
@@ -116,7 +129,7 @@ export default function ClientsPortfolio() {
               <SwiperSlide key={idx}>
                 <div className="group relative h-full">
                   <div
-                    className="relative h-full px-10 py-14
+                    className="relative h-full px-10 py-10
                     
                     flex flex-col items-center justify-center text-center"
                   >

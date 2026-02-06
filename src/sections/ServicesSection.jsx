@@ -1,20 +1,10 @@
-import {
-  Brush,
-  Code2,
-  Globe,
-  Laptop,
-  PieChart,
-  Settings,
-  Sparkles,
-} from "lucide-react";
+import { BoxIcon, Brush, Code, RocketIcon, Sparkles } from "lucide-react";
 
 const services = [
-  { title: "Global Coverage", icon: Globe },
-  { title: "IT Management", icon: Settings },
-  { title: "Software Development", icon: Code2 },
-  { title: "Brand Strategy", icon: Brush },
-  { title: "Business Consulting", icon: PieChart },
-  { title: "Website Design", icon: Laptop },
+  { title: "Facebook Boosting", icon: RocketIcon },
+  { title: "Design Content", icon: Brush },
+  { title: "Website Development", icon: Code },
+  { title: "Business Page Setup", icon: BoxIcon },
 ];
 
 export default function ServicesSection() {
@@ -29,12 +19,12 @@ export default function ServicesSection() {
         ></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 text-white">
+      <div className="relative max-w-7xl mx-auto px-8 lg:px-36 text-white">
         {/* Header */}
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#FF6600]/20 to-[#4B0082]/20 dark:from-[#FF6600]/10 dark:to-[#FF6600]/5 border border-[#FF6600]/30 rounded-full backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-orange-600" fill="#FF6600" />
-            <span className="text-sm text-gray-300 dark:text-[#FF6600] font-medium">
+            <Sparkles className="w-4 h-4 text-[#FF6600]" fill="#FF6600" />
+            <span className="text-md text-gray-300 dark:text-[#FF6600] font-medium">
               Boost Up Your Business
             </span>
           </div>
@@ -49,13 +39,10 @@ export default function ServicesSection() {
               </span>
             </span>
           </h2>
-          <p className="text-center text-xl text-gray-400 dark:text-slate-700 leading-relaxed">
-            Boost Your Business with Premium Solutions, Grow Faster
-          </p>
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-[30px] gap-x-[24px]">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-y-[30px] gap-x-[40px]">
           {services.map((item, i) => {
             const Icon = item.icon;
 
@@ -66,7 +53,7 @@ export default function ServicesSection() {
   bg-linear-to-br from-slate-100/90 to-slate-200/90 dark:from-slate-800/10 dark:to-slate-900/10
   backdrop-blur-lg 
   shadow-sm shadow-slate-400/20 dark:shadow-black/30
-  px-[30px] py-[40px]
+  px-[60px] py-[50px]
   transition-all duration-300"
               >
                 {/* Hover Gradient Expansion */}

@@ -118,7 +118,7 @@ export default function ModernAboutSection() {
   }, [isVisible]);
 
   return (
-    <section id="about" className="relative overflow-hidden">
+    <section id="about" className="relative overflow-hidden py-20">
       <div className="dark:hidden absolute inset-0 pointer-events-none">
         <div className="absolute w-96 h-96 bg-[#FF6600] rounded-full blur-3xl opacity-10 top-1/4 left-0 animate-pulse" />
         <div
@@ -127,7 +127,7 @@ export default function ModernAboutSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div ref={statsRef} className="grid grid-cols-2 gap-6">
             {stats.map((stat, i) => (
@@ -139,11 +139,11 @@ export default function ModernAboutSection() {
          backdrop-blur-sm
          shadow-sm shadow-slate-400/20 dark:shadow-black/30
          px-[30px] py-[40px]
-         transition-all duration-300"
+         transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <div
                   className={`w-12 h-12 bg-gradient-to-br ${stat.color}
-                rounded-xl flex items-center justify-center mb-4`}
+                rounded-xl flex items-center justify-center`}
                 >
                   <stat.icon className="w-6 h-6 text-white" />
                 </div>
@@ -168,8 +168,8 @@ export default function ModernAboutSection() {
             dark:from-[#FF6600]/10 dark:to-[#FF6600]/5
             border border-[#FF6600]/30 rounded-full"
             >
-              <Sparkles className="w-4 h-4 text-[#FF6600]" />
-              <span className="text-sm text-white dark:text-[#FF6600]">
+              <Sparkles className="w-4 h-4 text-[#FF6600]" fill="#FF6600" />
+              <span className="text-md text-white dark:text-[#FF6600] font-medium">
                 Who We Are
               </span>
             </div>
@@ -202,9 +202,9 @@ export default function ModernAboutSection() {
             dark:from-[#FF6600]/10 dark:to-[#FF6600]/5
             border border-[#FF6600]/30 rounded-full"
           >
-            <Sparkles className="w-4 h-4 text-[#FF6600]" />
-            <span className="text-sm text-white dark:text-[#FF6600]">
-              Let's Connect
+            <Sparkles className="w-4 h-4 text-[#FF6600]" fill="#FF6600" />
+            <span className="text-md text-white dark:text-[#FF6600] font-medium">
+              Our Strategies
             </span>
           </div>
           <div className="flex flex-col gap-2 mt-4">
@@ -218,11 +218,6 @@ export default function ModernAboutSection() {
                 That Scale Businesses
               </div>
             </h2>
-
-            <p className="text-lg text-gray-400 dark:text-slate-700 leading-relaxed">
-              Axia Digitech is a long-term digital partner helping brands grow
-              with clarity, speed, and purpose.
-            </p>
           </div>
         </div>
 

@@ -45,7 +45,7 @@ export default function Navbar() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="text-[#FF6600] font-medium relative group transition-colors duration-300"
+                className="text-[#FF6600] font-medium relative group transition-colors duration-300 text-lg"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-600 to-purple-800 group-hover:w-full transition-all duration-300" />

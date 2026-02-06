@@ -66,11 +66,11 @@ export default function GrowBusinessSection() {
               className="inline-flex items-center space-x-2 px-4 py-2 
                   bg-gradient-to-r from-[#FF6600]/20 to-[#4B0082]/20 
                   dark:from-[#FF6600]/10 dark:to-[#FF6600]/5 
-                  border border-[#FF6600]/30 dark:border-[#FF6600]/40 
+                  border border-[#FF6600]/30 dark:border-slate-600 
                   rounded-full backdrop-blur-sm"
             >
-              <Sparkles className="w-4 h-4 text-[#FF6600]" fill="#FF6600" />
-              <span className="text-sm text-gray-300 dark:text-[#FF6600] font-medium">
+              <Sparkles className="w-4 h-4 text-slate-900" fill="#45556c" />
+              <span className="text-sm text-gray-300 dark:text-slate-900 font-medium">
                 Transform Your Business
               </span>
             </div>
@@ -93,9 +93,9 @@ export default function GrowBusinessSection() {
                 </span>
               </span>
             </h2>
-            <p className="text-center text-xl text-gray-400 dark:text-slate-700 leading-relaxed mt-2">
+            {/* <p className="text-center text-xl text-gray-400 dark:text-slate-700 leading-relaxed mt-2">
               Elevate Your Brand, Accelerate Your Growth
-            </p>
+            </p> */}
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mt-12">
